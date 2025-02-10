@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+@import "tailwindcss";
+@source "../views";
+
+@theme {
+    --font-poppins: "Poppins", sans-serif;
+    --font-lato: "Lato", sans-serif;
+    --font-playfair: "Playfair Display", sans-serif;
+
+    /* --text-primary: #f4f5f6;
+    --text-secondary: #ffc712;
+    --text-third: #1a1a1a;
+    --color-primary-btn: #0d6efd;
+    --color-secondary-btn: #d8a900;
+    --color-third-btn: #3851a3; */
+
+    --color-primary-100: oklch(96.97% 0.0017 247.84);
+    --color-primary-200: oklch(85.58% 0.1725764201113736 87.66442228649997);
+    --color-primary-300: oklch(21.78% 0 0);
+    --color-primary-400: oklch(57.82% 0.2282 260.03);
+    --color-primary-500: oklch(75.65% 0.1546 88.5);
+    --color-primary-600: oklch(46.07% 0.1356 268);
+}
