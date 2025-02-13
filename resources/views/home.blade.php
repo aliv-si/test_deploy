@@ -72,18 +72,22 @@
             <div class="absolute inset-0">
                 <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25">
             </div>
-
+        
             <div class="relative md:w-1/2 text-center md:text-left">
-                <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">Himpunan Mahasiswa<br>Program
-                    Studi<br>Sistem
-                    Informasi</h1>
-                <div class="w-3xs h-1.5 bg-primary-200 mt-2"></div>
-                <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">Adaptif, Inovatif, Kreatif</p>
+                <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
+                    Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
+                </h1>
+                <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div> <!-- Garis Responsif -->
+                <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">
+                    Adaptif, Inovatif, Kreatif
+                </p>
             </div>
+        
             <div class="relative md:w-1/2 flex justify-center">
                 <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
             </div>
-        </header>
+        </header>        
+        
         {{-- End Header --}}
 
         <!-- Berita Acara -->
