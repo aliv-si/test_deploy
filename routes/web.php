@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/index', function () {
+    return view('index');
 });
 
 Route::get('/profil', function () {
@@ -24,4 +24,12 @@ Route::get('/berita', function () {
 
 Route::get('/banksoal', function () {
     return view('bank-soal');
+});
+
+Route::get('/detail-berita', function () {
+    return view('detail-berita');
+});
+
+Route::get('/detail-department', function () {
+    return view('detail-department');
 });

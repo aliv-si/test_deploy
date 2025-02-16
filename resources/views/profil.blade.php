@@ -93,24 +93,29 @@
             <div class="text-center pb-6">
                 <h2 class="text-3xl font-bold text-primary-300 font-poppins">Visi dan Misi</h2>
                 <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
-
             </div>
+
             <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
 
                 <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
                     <h3 class="text-2xl font-bold text-primary-300 font-poppins">VISI</h3>
                     <div class="w-12 h-1 bg-yellow-500 mt-1"></div>
-                    <p class="mt-2 text-primary-300 font-poppins">Menjadikan himpunan mahasiswa sistem informasi sebagai wadah pemersatu, penampung, aspirasi dan penyalur bakat mahasiswa. Prodi sistem informasi sehingga terwujud himpunan yang solid dan bersinergi.</p>
+                    <p class="mt-2 text-primary-300 font-poppins">Menjadikan himpunan mahasiswa sistem informasi sebagai
+                        wadah pemersatu, penampung, aspirasi dan penyalur bakat mahasiswa. Prodi sistem informasi
+                        sehingga terwujud himpunan yang solid dan bersinergi.</p>
                 </div>
 
                 <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
                     <h3 class="text-2xl font-bold text-primary-300 font-poppins">MISI</h3>
                     <div class="w-12 h-1 bg-yellow-500 mt-1"></div>
                     <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
-                        <li>Menjadi wadah kegiatan, penyalur aspirasi, minat, bakat dan tempat tukar pikiran dengan asas kekeluargaan.</li>
+                        <li>Menjadi wadah kegiatan, penyalur aspirasi, minat, bakat dan tempat tukar pikiran dengan asas
+                            kekeluargaan.</li>
                         <li>Mengembangkan dan menyalurkan potensi dari setiap mahasiswa untuk maju dan berkembang.</li>
-                        <li>Menjalin hubungan yang baik dengan civitas, alumni, serta organisasi atau lembaga lainnya khususnya di lingkungan Universitas Widyatama.</li>
-                        <li>Menyelenggarakan dan melanjutkan kegiatan yang dapat mendukung tercapainya mahasiswa yang aktif, memiliki solidaritas, berwawasan dan keterampilan yang kompeten.</li>
+                        <li>Menjalin hubungan yang baik dengan civitas, alumni, serta organisasi atau lembaga lainnya
+                            khususnya di lingkungan Universitas Widyatama.</li>
+                        <li>Menyelenggarakan dan melanjutkan kegiatan yang dapat mendukung tercapainya mahasiswa yang
+                            aktif, memiliki solidaritas, berwawasan dan keterampilan yang kompeten.</li>
                     </ul>
                 </div>
             </div>
@@ -123,9 +128,9 @@
                 <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">Struktur Organisasi</h2>
                 <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
 
-                
                 <div class="flex justify-center mt-8">
-                    <img src="img/profil-himasi.png" alt="Struktur Organisasi" class="w-full max-w-4xl shadow-lg rounded-lg">
+                    <img src="img/profil-himasi.png" alt="Struktur Organisasi"
+                        class="w-full max-w-4xl shadow-lg rounded-lg">
                 </div>
             </div>
         </section>

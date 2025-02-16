@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - Seminar Public Speaking</title>
+    <title>HIMASI - Department Eksternal</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
-<body>
+<body class="bg-white">
     {{-- Navbar --}}
     <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
         <!-- Logo -->
@@ -51,7 +51,7 @@
             </svg>
         </button>
 
-        {{-- Mobile Menu --}}
+        <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="absolute top-full left-0 w-full bg-white shadow-lg hidden md:hidden z-50 transition-all ease-in-out duration-300">
             <ul class="flex flex-col space-y-3 p-4 text-primary-300">
@@ -65,76 +65,122 @@
     </nav>
     {{-- End Navbar --}}
 
-    {{-- Main Content --}}
+    {{-- Main content --}}
     <main>
-        {{-- Detail berita --}}
-        <section class="max-w-6xl mx-auto mt-6 p-4 pb-6">
-            {{-- Breadcrumb Navigation --}}
-            <nav class="text-lg mb-4 flex flex-wrap items-center space-x-2">
+        {{-- Detail Department --}}
+        {{-- <section class="bg-white py-12">
+            <nav class="text-lg mb-6 flex flex-wrap items-center space-x-2 max-w-5xl mx-auto pl-6">
                 <a href="/" class="text-primary-600 hover:underline font-poppins font-medium">Home</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-4 h-4 text-primary-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Berita</a>
+                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Department</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-4 h-4 text-primary-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="#" class="text-primary-300 hover:underline font-poppins font-medium">Lomba</a>
+                <a href="#" class="text-primary-300 hover:underline font-poppins font-medium">Department Eksternal</a>
             </nav>
 
-            {{-- Judul --}}
-            <h1 class="text-2xl font-semibold font-poppins text-primary-300 mb-4 pb-1 text-left">Seminar Publik Speaking
-            </h1>
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">Department Eksternal</h2>
+                <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {{-- Konten Berita --}}
-                <div class="md:col-span-2">
-                    <div class="mb-6 border-black pb-6 flex flex-col items-start gap-4">
-                        {{-- Informasi Admin dan Tanggal --}}
-                        <div class="text-left w-full">
-                            <p class="text-sm text-gray-500 font-poppins font-light">
-                                Admin: <span class="font-semibold">John Doe</span> | Tanggal Rilis: <span
-                                    class="font-semibold">14 Februari 2025</span>
-                            </p>
-                        </div>
-
-                        <img src="img/seminar.png" alt="Seminar Public Speaking"
-                            class="w-[250px] h-[300px] md:w-[300px] md:h-[350px] rounded-lg shadow object-cover aspect-[4/5] mx-auto md:mx-0">
-
-                        <div class="text-left w-full">
-                            {{-- Teks Berita --}}
-                            <p class="text-primary-300 font-albert font-light mt-2">
-                                PENDAFTARAN DITUTUP HARI INI PUKUL 16:00 WIB ❗ SEMINAR PUBLIC SPEAKING HIMASI ✨
-                                Membangun Personal Branding Dan Strategi Komunikasi. Ayo daftarkan dirimu dan ikuti
-                                Seminar.
-                            </p>
-                        </div>
-                    </div>
+                <div class="flex justify-center mt-8">
+                    <img src="img/profil-department.png" alt="Department Eksternal"
+                        class="w-full max-w-4xl shadow-lg rounded-lg">
                 </div>
-
-                {{-- Sidebar Berita Terbaru --}}
-                <aside class="p-4 border-t md:border-none order-last md:order-none">
-                    <h2
-                        class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4 text-left">
-                        BERITA TERBARU</h2>
-                    <ul class="mt-4 space-y-3">
-                        <li class="border-b border-gray-300 pb-2">
-                            <a href="#" class="text-primary-300 font-poppins hover:underline">Seminar Publik
-                                Speaking</a>
-                            <p class="text-gray-500 text-sm font-poppins">16 Februari 2025</p>
-                        </li>
-                        <li class="border-b border-gray-300 pb-2">
-                            <a href="#" class="text-primary-300 font-poppins hover:underline">Gemasi 2025</a>
-                            <p class="text-gray-500 text-sm font-poppins">16 Februari 2025</p>
-                        </li>
-                    </ul>
-                </aside>
             </div>
         </section>
 
-        {{-- End Detail berita --}}
+        <section class="px-6 py-12 bg-white">
+
+            <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
+
+                <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Profil Department Eksternal</h3>
+                    <div class="w-64 h-1 bg-yellow-500 mt-1"></div>
+                    <p class="mt-2 text-primary-300 font-poppins">Departemen Eksternal adalah departemen yang
+                        bertanggungjawab atas kegiatan-kegiatan eksternal HIMASI dan mengkoordinasi masalah eksternal
+                        HIMASI dengan Ketua HIMASI. Departemen Eksternal bertugas untuk melaksanakan pembinaan dan
+                        pengembangan hubungan dengan pihak luar serta seluruh Mahasiswa Prodi Sistem Informasi HIMASI.
+                        Departemen Eksternal juga menyelenggarakan kegiatan-kegiatan seperti seminar public speaking,
+                        edukasi pelajar, study banding, dan study tour untuk meningkatkan kualitas Pengurus dan
+                        memperluas wawasan Anggota Aktif.</p>
+                </div>
+
+                <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Proker Department Eksternal</h3>
+                    <div class="w-64 h-1 bg-yellow-500 mt-1"></div>
+                    <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
+                        <li>Study Banding</li>
+                        <li>Edukasi Pelajar</li>
+                        <li>Kunjungan Industri atau Study Tour</li>
+                        <li>Mengelola Social Media HIMASI</li>
+                    </ul>
+                </div>
+            </div>
+        </section> --}}
+        <section class="max-w-6xl mx-auto mt-6 p-4 pb-6">
+            <!-- Breadcrumb Navigation -->
+            <nav class="text-lg mb-4 flex flex-wrap items-center gap-x-1 sm:gap-x-2 overflow-x-auto px-4 sm:px-6 lg:px-8">
+                <a href="/" class="text-primary-600 hover:underline font-poppins font-medium whitespace-nowrap">Home</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4 text-primary-200">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium whitespace-nowrap">Department</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4 text-primary-200">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium whitespace-nowrap">Department Eksternal</a>
+            </nav>
+
+            <!-- Header Berita Terbaru dengan Garis Hitam -->
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">Department Eksternal</h2>
+                <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
+
+                <div class="flex justify-center mt-8">
+                    <img src="img/profil-department.png" alt="Department Eksternal"
+                        class="w-full max-w-4xl shadow-lg rounded-lg">
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-12 bg-white">
+            <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
+                
+                <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Profil Department Eksternal</h3>
+                    <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2"></div>
+                    <p class="mt-2 text-primary-300 font-poppins">
+                        Departemen Eksternal adalah departemen yang bertanggungjawab atas kegiatan-kegiatan eksternal HIMASI 
+                        dan mengkoordinasi masalah eksternal HIMASI dengan Ketua HIMASI. Departemen Eksternal bertugas untuk 
+                        melaksanakan pembinaan dan pengembangan hubungan dengan pihak luar serta seluruh Mahasiswa Prodi 
+                        Sistem Informasi HIMASI. Departemen Eksternal juga menyelenggarakan kegiatan-kegiatan seperti 
+                        seminar public speaking, edukasi pelajar, study banding, dan study tour untuk meningkatkan kualitas 
+                        Pengurus dan memperluas wawasan Anggota Aktif.
+                    </p>
+                </div>
+        
+                <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Proker Department Eksternal</h3>
+                    <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2"></div>
+                    <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
+                        <li>Study Banding</li>
+                        <li>Edukasi Pelajar</li>
+                        <li>Kunjungan Industri atau Study Tour</li>
+                        <li>Mengelola Social Media HIMASI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        
+        {{-- End Detail Department --}}
 
         {{-- Footer --}}
         <footer class="bg-white py-8">
@@ -220,8 +266,7 @@
         </footer>
         {{-- End Footer --}}
     </main>
-    {{-- End Main Content --}}
-
+    {{-- End Main content --}}
     <script src="js/script.js"></script>
 </body>
 

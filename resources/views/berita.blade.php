@@ -79,11 +79,11 @@
                 </svg>
                 <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Berita</a>
             </nav>
-        
+
             <!-- Header Berita Terbaru dengan Garis Hitam -->
-            <h1 class="text-2xl font-semibold font-poppins text-primary-300 mb-1">BERITA TERBARU</h1>
+            <h1 class="text-3xl font-bold font-poppins text-primary-300 mb-1">BERITA TERBARU</h1>
             <div class="w-32 h-1.5 bg-primary-300 mb-4"></div>
-        
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Konten Berita -->
                 <div class="md:col-span-2">
@@ -91,31 +91,66 @@
                     <div class="mb-6 border-b border-black pb-6 flex flex-col md:flex-row items-start gap-4">
                         <img src="img/seminar.png" alt="Seminar Public Speaking"
                             class="w-[250px] h-[300px] md:w-[300px] md:h-[350px] rounded-lg shadow object-cover aspect-[4/5]">
+
                         <div>
-                            <h2 class="text-xl font-bold font-poppins text-primary-300 mb-1">Seminar Publik Speaking</h2>
-                            <p class="text-sm text-gray-500">Admin: <span class="font-semibold">John Doe</span> | Tanggal Rilis: <span class="font-semibold">14 Februari 2025</span></p>
-                            <p class="text-primary-300 font-poppins font-light mt-2">
-                                PENDAFTARAN DITUTUP HARI INI PUKUL 16:00 WIB ❗ SEMINAR PUBLIC SPEAKING HIMASI ✨ Membangun
+                            <a href="#">
+                                <h2 class="text-xl font-bold font-poppins text-primary-300 mb-1 hover:underline">Seminar Publik Speaking
+                                </h2>
+                            </a>
+
+                            <p class="text-sm text-gray-500 font-poppins font-light">
+                                14 Februari 2025
+                            </p>
+
+                            <p class="text-primary-300 font-albert font-light mt-2">
+                                PENDAFTARAN DITUTUP HARI INI PUKUL 16:00 WIB ❗ SEMINAR PUBLIC SPEAKING HIMASI ✨
+                                Membangun
                                 Personal Branding Dan Strategi Komunikasi. Ayo daftarkan dirimu dan ikuti Seminar.
                             </p>
+
+                            {{-- Category --}}
+                            <div class="flex items-center text-sm text-gray-500 font-poppins mt-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"
+                                    class="w-4 h-4 mr-1 text-primary-300">
+                                    <path
+                                        d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z">
+                                    </path>
+                                </svg>
+                                <a href="#"><span class="hover:underline">Seminar</span></a>
+                            </div>
                         </div>
                     </div>
-        
+
                     <!-- Berita 2 -->
                     <div class="border-b border-black pb-6 flex flex-col md:flex-row items-start gap-4">
                         <img src="img/gemasi.png" alt="Gemasi 2025"
                             class="w-[250px] h-[300px] md:w-[300px] md:h-[350px] rounded-lg shadow object-cover aspect-[4/5]">
                         <div>
                             <h2 class="text-xl font-bold font-poppins text-primary-300 mb-1">Gemasi 2025</h2>
-                            <p class="text-sm text-gray-500">Admin: <span class="font-semibold">John Doe</span> | Tanggal Rilis: <span class="font-semibold">14 Februari 2025</span></p>
-                            <p class="text-primary-300 font-poppins font-light mt-2">
-                                Hai sobat sisforma ✨ Program studi Sistem Informasi Universitas Amikom Yogyakarta kembali
+                            <p class="text-sm text-gray-500 font-poppins font-light">
+                                14 Februari 2025
+                            </p>
+                            <p class="text-primary-300 font-albert font-light mt-2">
+                                Hai sobat sisforma ✨ Program studi Sistem Informasi Universitas Amikom Yogyakarta
+                                kembali
                                 menyelenggarakan Gelar Karya Mahasiswa Sistem Informasi (GEMASI) 2025. Yuk persiapkan
                                 tim dan karya terbaik kamu untuk menjadi champion di GEMASI 2025! 🚀
                             </p>
+
+                            <div class="flex items-center text-sm text-gray-500 font-poppins mt-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"
+                                    class="w-4 h-4 mr-1 text-primary-300">
+                                    <path
+                                        d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z">
+                                    </path>
+                                </svg>
+                                <a href="#"><span class="hover:underline">Lomba</span></a>
+                            </div>
                         </div>
                     </div>
-        
+
                     <!-- Tombol Pagination -->
                     <div class="mt-6 flex justify-center space-x-2">
                         <button
@@ -128,16 +163,20 @@
                             class="px-4 py-2 bg-gray-200 text-black font-semibold rounded-lg shadow-md hover:bg-gray-300 transition duration-300">></button>
                     </div>
                 </div>
-        
+
                 <!-- Sidebar Berita Terbaru -->
                 <aside class="p-4 border-t md:border-none">
-                    <h2 class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4">BERITA TERBARU</h2>
+                    <h2 class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4">
+                        BERITA TERBARU</h2>
                     <ul class="mt-4 space-y-3">
                         <li class="border-b border-gray-300 pb-2">
-                            <a href="#" class="text-primary-300 font-poppins hover:underline">Seminar Publik Speaking</a>
+                            <a href="#" class="text-primary-300 font-poppins hover:underline">Seminar Publik
+                                Speaking</a>
+                            <p class="text-gray-500 text-sm">16 Februari 2025</p>
                         </li>
                         <li class="border-b border-gray-300 pb-2">
                             <a href="#" class="text-primary-300 font-poppins hover:underline">Gemasi 2025</a>
+                            <p class="text-gray-500 text-sm">16 Februari 2025</p>
                         </li>
                     </ul>
                 </aside>

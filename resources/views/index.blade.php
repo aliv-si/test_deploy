@@ -72,7 +72,7 @@
             <div class="absolute inset-0">
                 <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25">
             </div>
-        
+
             <div class="relative md:w-1/2 text-center md:text-left">
                 <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
                     Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
@@ -82,18 +82,18 @@
                     Adaptif, Inovatif, Kreatif
                 </p>
             </div>
-        
+
             <div class="relative md:w-1/2 flex justify-center">
                 <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
             </div>
-        </header>        
-        
+        </header>
+
         {{-- End Header --}}
 
         <!-- Berita Acara -->
         <section class="bg-white py-16 px-6 md:px-20">
             <div class="flex flex-col items-center pb-4">
-                <h2 class="text-3xl font-poppins text-primary-300 font-medium">Berita Acara</h2>
+                <h2 class="text-3xl font-poppins text-primary-300 font-bold">Berita Acara</h2>
                 <div class="w-24 h-1.5 bg-black mt-1"></div>
             </div>
 
@@ -106,7 +106,8 @@
                                     class="text-lg font-poppins font-bold text-primary-300 border-b-4 border-primary-200 w-fit pb-1 mb-2">
                                     SEMINAR
                                 </h2>
-                                <h1 class="text-2xl font-bold text-primary-300 font-poppins">Seminar Publik Speaking</h1>
+                                <h1 class="text-2xl font-bold text-primary-300 font-poppins">Seminar Publik Speaking
+                                </h1>
                                 <p class="text-primary-300 font-poppins font-light mt-4 leading-relaxed">
                                     PENDAFTARAN DITUTUP HARI INI PUKUL 16:00 WIB❗ SEMINAR PUBLIC SPEAKING
                                     HIMASI✨ Membangun Personal Branding Dan Strategi Komunikasi. Ayo
@@ -163,7 +164,7 @@
         <section class="relative py-16 px-6 md:px-20">
             <!-- Bagian Header (Judul) -->
             <div class="flex flex-col items-center text-center relative z-10 pb-6">
-                <h2 class="text-4xl font-medium font-poppins text-primary-300">Aspirasi</h2>
+                <h2 class="text-3xl font-bold font-poppins text-primary-300">Aspirasi</h2>
                 <div class="w-24 h-1.5 bg-black mt-2"></div>
             </div>
 
