@@ -6,30 +6,30 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/index', function () {
-    return view('index');
+Route::get('/', function () {
+    return view('pages.index');
 });
 
 Route::get('/profil', function () {
-    return view('profil');
+    return view('pages.profil');
 });
 
 Route::get('/department', function () {
-    return view('department');
+    return view('pages.department');
 });
 
 Route::get('/berita', function () {
-    return view('berita');
+    return view('pages.berita');
 });
 
 Route::get('/banksoal', function () {
-    return view('bank-soal');
+    return view('pages.bank-soal');
 });
 
 Route::get('/detail-berita', function () {
-    return view('detail-berita');
+    return view('pages.detail-berita');
 });
 
 Route::get('/detail-department', function () {
-    return view('detail-department');
+    return view('pages.detail-department');
 });
