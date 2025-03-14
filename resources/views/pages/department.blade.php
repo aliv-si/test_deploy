@@ -81,7 +81,7 @@
                     <p class="mt-4 font-medium text-lg font-poppins">Pengurus Harian</p>
                     <button
                         class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="#">Selengkapnya</a>
+                        <a href="/detail-department">Selengkapnya</a>
                     </button>
                 </div>
 
@@ -90,7 +90,7 @@
                     <p class="mt-4 font-medium text-lg font-poppins">Departemen Internal</p>
                     <button
                         class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="#">Selengkapnya</a>
+                        <a href="/detail-department">Selengkapnya</a>
                     </button>
                 </div>
 
@@ -99,7 +99,7 @@
                     <p class="mt-4 font-medium text-lg font-poppins">Departemen Aspirasi</p>
                     <button
                         class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="#">Selengkapnya</a>
+                        <a href="/detail-department">Selengkapnya</a>
                     </button>
                 </div>
 
@@ -108,7 +108,7 @@
                     <p class="mt-4 font-medium text-lg font-poppins">Departemen Eksternal</p>
                     <button
                         class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="#">Selengkapnya</a>
+                        <a href="/detail-department">Selengkapnya</a>
                     </button>
                 </div>
 
@@ -117,7 +117,7 @@
                     <p class="mt-4 font-medium text-lg font-poppins">Departemen IPTEK</p>
                     <button
                         class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="#">Selengkapnya</a>
+                        <a href="/detail-department">Selengkapnya</a>
                     </button>
                 </div>
             </div>
@@ -214,3 +214,4 @@
 </body>
 
 </html>
+

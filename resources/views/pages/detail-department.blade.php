@@ -68,74 +68,27 @@
     {{-- Main content --}}
     <main>
         {{-- Detail Department --}}
-        {{-- <section class="bg-white py-12">
-            <nav class="text-lg mb-6 flex flex-wrap items-center space-x-2 max-w-5xl mx-auto pl-6">
-                <a href="/" class="text-primary-600 hover:underline font-poppins font-medium">Home</a>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-4 h-4 text-primary-200">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Department</a>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-4 h-4 text-primary-200">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-                <a href="#" class="text-primary-300 hover:underline font-poppins font-medium">Department Eksternal</a>
-            </nav>
-
-            <div class="max-w-6xl mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">Department Eksternal</h2>
-                <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
-
-                <div class="flex justify-center mt-8">
-                    <img src="img/profil-department.png" alt="Department Eksternal"
-                        class="w-full max-w-4xl shadow-lg rounded-lg">
-                </div>
-            </div>
-        </section>
-
-        <section class="px-6 py-12 bg-white">
-
-            <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
-
-                <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
-                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Profil Department Eksternal</h3>
-                    <div class="w-64 h-1 bg-yellow-500 mt-1"></div>
-                    <p class="mt-2 text-primary-300 font-poppins">Departemen Eksternal adalah departemen yang
-                        bertanggungjawab atas kegiatan-kegiatan eksternal HIMASI dan mengkoordinasi masalah eksternal
-                        HIMASI dengan Ketua HIMASI. Departemen Eksternal bertugas untuk melaksanakan pembinaan dan
-                        pengembangan hubungan dengan pihak luar serta seluruh Mahasiswa Prodi Sistem Informasi HIMASI.
-                        Departemen Eksternal juga menyelenggarakan kegiatan-kegiatan seperti seminar public speaking,
-                        edukasi pelajar, study banding, dan study tour untuk meningkatkan kualitas Pengurus dan
-                        memperluas wawasan Anggota Aktif.</p>
-                </div>
-
-                <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
-                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Proker Department Eksternal</h3>
-                    <div class="w-64 h-1 bg-yellow-500 mt-1"></div>
-                    <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
-                        <li>Study Banding</li>
-                        <li>Edukasi Pelajar</li>
-                        <li>Kunjungan Industri atau Study Tour</li>
-                        <li>Mengelola Social Media HIMASI</li>
-                    </ul>
-                </div>
-            </div>
-        </section> --}}
         <section class="max-w-6xl mx-auto mt-6 p-4 pb-6">
             <!-- Breadcrumb Navigation -->
-            <nav class="text-lg mb-4 flex flex-wrap items-center gap-x-1 sm:gap-x-2 overflow-x-auto px-4 sm:px-6 lg:px-8">
-                <a href="/" class="text-primary-600 hover:underline font-poppins font-medium whitespace-nowrap">Home</a>
+            <nav
+                class="text-lg mb-4 flex flex-wrap items-center gap-x-1 sm:gap-x-2 overflow-x-auto px-4 sm:px-6 lg:px-8">
+                <a href="/"
+                    class="text-primary-600 hover:underline font-poppins font-medium whitespace-nowrap">Home</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-4 h-4 text-primary-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium whitespace-nowrap">Department</a>
+                <a href="/department"
+                    class="text-primary-300 hover:underline font-poppins font-medium whitespace-nowrap">Department</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-4 h-4 text-primary-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium whitespace-nowrap">Department Eksternal</a>
+                <p class="text-primary-300  font-poppins font-medium whitespace-nowrap">Department
+                    Eksternal</p>
+                {{-- <a href=""
+                    class="text-primary-300  font-poppins font-medium whitespace-nowrap">Department
+                    Eksternal</a> --}}
             </nav>
 
             <!-- Header Berita Terbaru dengan Garis Hitam -->
@@ -152,34 +105,40 @@
 
         <section class="px-6 py-12 bg-white">
             <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
-                
+
                 <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
                     <h3 class="text-2xl font-bold text-primary-300 font-poppins">Profil Department Eksternal</h3>
-                    <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2"></div>
+                    <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2">
+                    </div>
                     <p class="mt-2 text-primary-300 font-poppins">
-                        Departemen Eksternal adalah departemen yang bertanggungjawab atas kegiatan-kegiatan eksternal HIMASI 
-                        dan mengkoordinasi masalah eksternal HIMASI dengan Ketua HIMASI. Departemen Eksternal bertugas untuk 
-                        melaksanakan pembinaan dan pengembangan hubungan dengan pihak luar serta seluruh Mahasiswa Prodi 
-                        Sistem Informasi HIMASI. Departemen Eksternal juga menyelenggarakan kegiatan-kegiatan seperti 
-                        seminar public speaking, edukasi pelajar, study banding, dan study tour untuk meningkatkan kualitas 
+                        Departemen Eksternal adalah departemen yang bertanggungjawab atas kegiatan-kegiatan eksternal
+                        HIMASI
+                        dan mengkoordinasi masalah eksternal HIMASI dengan Ketua HIMASI. Departemen Eksternal bertugas
+                        untuk
+                        melaksanakan pembinaan dan pengembangan hubungan dengan pihak luar serta seluruh Mahasiswa Prodi
+                        Sistem Informasi HIMASI. Departemen Eksternal juga menyelenggarakan kegiatan-kegiatan seperti
+                        seminar public speaking, edukasi pelajar, study banding, dan study tour untuk meningkatkan
+                        kualitas
                         Pengurus dan memperluas wawasan Anggota Aktif.
                     </p>
                 </div>
-        
+
                 <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
                     <h3 class="text-2xl font-bold text-primary-300 font-poppins">Proker Department Eksternal</h3>
-                    <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2"></div>
+                    <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2">
+                    </div>
+                    {{-- foreach --}}
                     <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
                         <li>Study Banding</li>
                         <li>Edukasi Pelajar</li>
                         <li>Kunjungan Industri atau Study Tour</li>
                         <li>Mengelola Social Media HIMASI</li>
                     </ul>
+                    {{-- endforeach --}}
                 </div>
             </div>
         </section>
-        
-        
+
         {{-- End Detail Department --}}
 
         {{-- Footer --}}
@@ -271,3 +230,4 @@
 </body>
 
 </html>
+
