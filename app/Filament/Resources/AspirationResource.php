@@ -33,7 +33,7 @@ class AspirationResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id_aspiration')
-                    ->label('ID')
+                    ->label('No')
                     ->sortable(),
 
                 TextColumn::make('email_student')
@@ -43,19 +43,20 @@ class AspirationResource extends Resource
 
                 TextColumn::make('aspiration')
                     ->label('Isi Aspiration')
-                    ->limit(50) 
+                    ->limit(100)
                     ->searchable(),
 
                 TextColumn::make('date')
                     ->label('Date')
-                    ->dateTime('d M Y H:i')
+                    ->date('d M Y')
                     ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

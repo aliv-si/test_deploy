@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - Department Eksternal</title>
+    <title>HIMASI - {{ $department->name_department }}</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
@@ -84,57 +84,60 @@
                     stroke="currentColor" class="w-4 h-4 text-primary-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <p class="text-primary-300  font-poppins font-medium whitespace-nowrap">Department
-                    Eksternal</p>
-                {{-- <a href=""
-                    class="text-primary-300  font-poppins font-medium whitespace-nowrap">Department
-                    Eksternal</a> --}}
+                <p class="text-primary-300  font-poppins font-medium whitespace-nowrap">
+                    {{ $department->name_department }}</p>
             </nav>
 
             <!-- Header Berita Terbaru dengan Garis Hitam -->
             <div class="max-w-6xl mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">Department Eksternal</h2>
+                <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">
+                    {{ $department->name_department }}</h2>
                 <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
 
                 <div class="flex justify-center mt-8">
-                    <img src="img/profil-department.png" alt="Department Eksternal"
-                        class="w-full max-w-4xl shadow-lg rounded-lg">
+                    @if ($department->image_struktur)
+                        <img src="{{ asset('storage/' . $department->image_struktur) }}"
+                            alt="Struktur {{ $department->name_department }}"
+                            class="w-full max-w-4xl shadow-lg rounded-lg">
+                    @endif
                 </div>
             </div>
         </section>
 
         <section class="px-6 py-12 bg-white">
             <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
-
+                <!-- Profil Departemen -->
                 <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
-                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Profil Department Eksternal</h3>
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">
+                        Profil {{ $department->name_department }}
+                    </h3>
                     <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2">
                     </div>
-                    <p class="mt-2 text-primary-300 font-poppins">
-                        Departemen Eksternal adalah departemen yang bertanggungjawab atas kegiatan-kegiatan eksternal
-                        HIMASI
-                        dan mengkoordinasi masalah eksternal HIMASI dengan Ketua HIMASI. Departemen Eksternal bertugas
-                        untuk
-                        melaksanakan pembinaan dan pengembangan hubungan dengan pihak luar serta seluruh Mahasiswa Prodi
-                        Sistem Informasi HIMASI. Departemen Eksternal juga menyelenggarakan kegiatan-kegiatan seperti
-                        seminar public speaking, edukasi pelajar, study banding, dan study tour untuk meningkatkan
-                        kualitas
-                        Pengurus dan memperluas wawasan Anggota Aktif.
-                    </p>
+                    <div class="mt-4 text-primary-300 font-poppins prose max-w-none">
+                        {!! $department->profil !!}
+                    </div>
+
                 </div>
 
+                <!-- Program Kerja Departemen -->
                 <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
-                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">Proker Department Eksternal</h3>
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">
+                        Program Kerja {{ $department->name_department }}
+                    </h3>
                     <div class="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] h-1 bg-yellow-500 mt-1 sm:mt-2">
                     </div>
-                    {{-- foreach --}}
-                    <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
-                        <li>Study Banding</li>
-                        <li>Edukasi Pelajar</li>
-                        <li>Kunjungan Industri atau Study Tour</li>
-                        <li>Mengelola Social Media HIMASI</li>
-                    </ul>
-                    {{-- endforeach --}}
+
+                    @if ($department->work_program)
+                        <ul class="mt-4 text-primary-300 list-disc list-inside space-y-2 font-poppins">
+                            @foreach (explode(',', $department->work_program) as $program)
+                                <li>{{ trim($program) }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p class="mt-4 text-primary-300/80 italic">
+                            Belum ada program kerja yang ditambahkan
+                        </p>
+                    @endif
                 </div>
             </div>
         </section>
@@ -153,10 +156,9 @@
                         <img src="img/logo SI.png" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
-                    <!-- Grid 3 Kolom -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                        <!-- Kolom 1: Universitas & Navigasi -->
+                        <!--  Universitas & Navigasi -->
                         <div>
                             <h3 class="font-medium font-poppins text-lg">Universitas Amikom Yogyakarta</h3>
                             <p class="text-primary-300 font-poppins">Sistem Informasi</p>
@@ -174,7 +176,7 @@
                             </ul>
                         </div>
 
-                        <!-- Kolom 2: Address & Social Media -->
+                        <!-- Address & Social Media -->
                         <div>
                             <h3 class="font-medium font-poppins text-lg">Address</h3>
                             <p class="text-primray-300 font-poppins">
@@ -204,7 +206,6 @@
                             </div>
                         </div>
 
-                        <!-- Kolom 3: Google Maps -->
                         <div>
                             <iframe class="w-full h-48 md:h-full rounded-lg "
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.281831557606!2d110.40688116996652!3d-7.759905827479537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a599bd3bdc4ef%3A0x6f1714b0c4544586!2sUniversitas%20Amikom%20Yogyakarta!5e0!3m2!1sid!2sid!4v1739096462499!5m2!1sid!2sid"

@@ -75,51 +75,29 @@
             <h2 class="text-2xl md:text-3xl font-bold font-poppins text-primary-300">DEPARTEMEN</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 px-6 md:px-20">
-                <!-- Card Template -->
-                <div class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center">
-                    <img src="img/teamwork.png" alt="Pengurus Harian" class="h-24 mt-4">
-                    <p class="mt-4 font-medium text-lg font-poppins">Pengurus Harian</p>
-                    <button
-                        class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="/detail-department">Selengkapnya</a>
-                    </button>
-                </div>
+                @foreach ($departments as $department)
+                    <div
+                        class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center hover:transform hover:scale-105 transition-all duration-300">
+                        <!-- Gunakan icon dari database jika ada -->
+                        @if ($department->icon)
+                            <img src="{{ asset('storage/' . $department->icon) }}"
+                                alt="{{ $department->name_department }}" class="h-24 mt-4">
+                        @else
+                            <!-- Fallback image jika icon tidak tersedia -->
+                            <img src="{{ asset('img/teamwork.png') }}" alt="{{ $department->name_department }}"
+                                class="h-24 mt-4">
+                        @endif
 
-                <div class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center">
-                    <img src="img/youth.png" alt="Departemen Internal" class="h-24 mt-4">
-                    <p class="mt-4 font-medium text-lg font-poppins">Departemen Internal</p>
-                    <button
-                        class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="/detail-department">Selengkapnya</a>
-                    </button>
-                </div>
+                        <p class="mt-4 font-medium text-lg font-poppins text-center">
+                            {{ $department->name_department }}
+                        </p>
 
-                <div class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center">
-                    <img src="img/megaphone.png" alt="Departemen Aspirasi" class="h-24 mt-4">
-                    <p class="mt-4 font-medium text-lg font-poppins">Departemen Aspirasi</p>
-                    <button
-                        class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="/detail-department">Selengkapnya</a>
-                    </button>
-                </div>
-
-                <div class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center">
-                    <img src="img/team.png" alt="Departemen Eksternal" class="h-24 mt-4">
-                    <p class="mt-4 font-medium text-lg font-poppins">Departemen Eksternal</p>
-                    <button
-                        class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="/detail-department">Selengkapnya</a>
-                    </button>
-                </div>
-
-                <div class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center">
-                    <img src="img/population-system.png" alt="Departemen IPTEK" class="h-24 mt-4">
-                    <p class="mt-4 font-medium text-lg font-poppins">Departemen IPTEK</p>
-                    <button
-                        class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-4 py-2 rounded-full text-sm shadow-md font-poppins">
-                        <a href="/detail-department">Selengkapnya</a>
-                    </button>
-                </div>
+                        <a href="{{ route('department.detail', $department->id_department) }}"
+                            class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-6 py-2 rounded-full text-sm shadow-md font-poppins transition-colors duration-200">
+                            Selengkapnya
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </section>
 

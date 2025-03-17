@@ -8,6 +8,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <title>HIMASI - Seminar Public Speaking</title>
+    {{-- <title>Himasi - {{ $department->name }}</title> --}}
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
@@ -226,3 +227,4 @@
 </body>
 
 </html>
+

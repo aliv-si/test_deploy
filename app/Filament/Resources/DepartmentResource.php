@@ -50,11 +50,13 @@ class DepartmentResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id_department')
+                    ->label('No'),
                 TextColumn::make('name_department')
                     ->label('Nama Department'),
                 TextColumn::make('profil')
                     ->label('Deskripsi Department')
-                    ->limit(50),
+                    ->limit(25),
                 TextColumn::make('work_program')
                     ->label('Program Kerja'),
                 ImageColumn::make('icon')

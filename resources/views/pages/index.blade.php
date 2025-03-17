@@ -190,20 +190,21 @@
 
                     <!-- Bagian Kanan: Formulir -->
                     <div class="md:w-1/2 bg-gray-50 p-6 rounded-xl shadow-md relative border border-gray-300">
-                        <form method="POST" action="" name="" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('aspiration.store') }}" enctype="multipart/form-data">
+                            @csrf
                             <!-- Input Email -->
-                            <label for="email" class="block text-primary-300 font-poppins font-semibold mb-1">
+                            <label for="email_student" class="block text-primary-300 font-poppins font-semibold mb-1">
                                 Email <span class="text-red-500">*</span>
                             </label>
-                            <input type="email" name="email" id="email"
+                            <input type="email" name="email_student" id="email_student"
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
                                 required>
 
                             <!-- Input Aspirasi -->
-                            <label for="aspirasi" class="block text-primary-300 font-poppins font-semibold mb-1">
+                            <label for="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
                                 Aspirasimu <span class="text-red-500">*</span>
                             </label>
-                            <textarea name="aspirasi" id="aspirasi" rows="4"
+                            <textarea name="aspiration" id="aspiration" rows="4"
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
                                 required></textarea>
 
@@ -213,6 +214,14 @@
                                 Kirim
                             </button>
                         </form>
+
+                        {{-- Notif Pesan Sukses --}}
+                        @if (session('success'))
+                            <div class="bg-green-100 text-green-700 p-3 rounded-md mb-4">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -309,3 +318,4 @@
 </body>
 
 </html>
+
