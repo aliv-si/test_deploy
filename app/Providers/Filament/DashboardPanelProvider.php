@@ -27,6 +27,9 @@ class DashboardPanelProvider extends PanelProvider
             ->id('dashboard')
             ->path('dashboard')
             ->login()
+            ->favicon(asset('img/favicon.png'))
+            ->brandLogo(asset('img/favicon.png'))
+            ->brandLogoHeight('40px')
             ->colors([
                 'primary' => Color::Amber,
             ])

@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - Seminar Public Speaking</title>
+    <title>HIMASI - {{ $news->news_headline }}</title>
     {{-- <title>Himasi - {{ $department->name }}</title> --}}
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-            <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
+            <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-8 w-8">
             <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
         </div>
 
@@ -96,20 +96,20 @@
                         {{-- Informasi Admin dan Tanggal --}}
                         <div class="text-left w-full">
                             <p class="text-sm text-gray-500 font-poppins font-light">
-                                Admin: <span class="font-semibold">John Doe</span> | Tanggal Rilis: <span
-                                    class="font-semibold">14 Februari 2025</span>
+                                Penulis: <span class="font-semibold">{{ $news->author->name ?? 'Admin' }}</span> |
+                                Tanggal Rilis: <span class="font-semibold">
+                                    {{ \Carbon\Carbon::parse($news->date)->translatedFormat('d F Y') }}
+                                </span>
                             </p>
                         </div>
 
-                        <img src="img/seminar.png" alt="Seminar Public Speaking"
+                        <img src="{{ asset('storage/' . $news->image_news) }}" alt="{{ $news->news_headline }}"
                             class="w-[250px] h-[300px] md:w-[300px] md:h-[350px] rounded-lg shadow object-cover aspect-[4/5] mx-auto md:mx-0">
 
                         <div class="text-left w-full">
                             {{-- Teks Berita --}}
                             <p class="text-primary-300 font-albert font-light mt-2">
-                                PENDAFTARAN DITUTUP HARI INI PUKUL 16:00 WIB ❗ SEMINAR PUBLIC SPEAKING HIMASI ✨
-                                Membangun Personal Branding Dan Strategi Komunikasi. Ayo daftarkan dirimu dan ikuti
-                                Seminar.
+                                {{ $news->news_content }}
                             </p>
                         </div>
                     </div>
@@ -119,19 +119,25 @@
                 <aside class="p-4 border-t md:border-none order-last md:order-none">
                     <h2
                         class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4 text-left">
-                        BERITA TERBARU</h2>
+                        BERITA TERBARU
+                    </h2>
                     <ul class="mt-4 space-y-3">
-                        <li class="border-b border-gray-300 pb-2">
-                            <a href="#" class="text-primary-300 font-poppins hover:underline">Seminar Publik
-                                Speaking</a>
-                            <p class="text-gray-500 text-sm font-poppins">16 Februari 2025</p>
-                        </li>
-                        <li class="border-b border-gray-300 pb-2">
-                            <a href="#" class="text-primary-300 font-poppins hover:underline">Gemasi 2025</a>
-                            <p class="text-gray-500 text-sm font-poppins">16 Februari 2025</p>
-                        </li>
+                        @forelse ($latestNews as $news)
+                            <li class="border-b border-gray-300 pb-2">
+                                <a href="{{ route('news.show', $news->slug) }}"
+                                    class="text-primary-300 font-poppins hover:underline">
+                                    {{ $news->news_headline }}
+                                </a>
+                                <p class="text-gray-500 text-sm font-poppins">
+                                    {{ \Carbon\Carbon::parse($news->date)->translatedFormat('d F Y') }}
+                                </p>
+                            </li>
+                        @empty
+                            <li class="text-gray-500 text-sm font-poppins">Belum ada berita terbaru.</li>
+                        @endforelse
                     </ul>
                 </aside>
+
             </div>
         </section>
 
@@ -145,8 +151,8 @@
 
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
-                        <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo SI.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
+                        <img src="{{ asset('img/logo SI.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <!-- Grid 3 Kolom -->

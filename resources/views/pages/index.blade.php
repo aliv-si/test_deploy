@@ -77,7 +77,7 @@
                 <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
                     Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
                 </h1>
-                <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div> <!-- Garis Responsif -->
+                <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div>
                 <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">
                     Adaptif, Inovatif, Kreatif
                 </p>
@@ -98,6 +98,61 @@
             </div>
 
             <div class="max-w-5xl mx-auto bg-gray-200 p-6 rounded-2xl shadow-lg">
+                <div class="relative">
+                    @foreach ($newsList as $index => $news)
+                        @if ($index < 2)
+                            {{-- Batasi hanya 2 berita yang muncul --}}
+                            <div class="slide {{ $index == 0 ? '' : 'hidden' }}">
+                                <div class="flex flex-col md:flex-row gap-6">
+                                    <div class="flex-1">
+                                        <h2
+                                            class="text-lg font-poppins font-bold text-primary-300 border-b-4 border-primary-200 w-fit pb-1 mb-2">
+                                            {{ strtoupper($news->category) }}
+                                        </h2>
+                                        <h1 class="text-2xl font-bold text-primary-300 font-poppins">
+                                            {{ $news->news_headline }}</h1>
+                                        <p class="text-primary-300 font-poppins font-light mt-4 leading-relaxed">
+                                            {{ $news->news_content }}
+                                        </p>
+                                    </div>
+                                    <div class="flex-1 flex justify-center">
+                                        <a href="{{ route('news.show', ['slug' => $news->slug]) }}">
+                                            <img src="{{ asset('storage/' . $news->image_news) }}"
+                                                alt="{{ $news->news_headline }}"
+                                                class="w-full max-w-sm h-64 object-cover rounded-lg shadow-md" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-center items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="prev-button cursor-pointer size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+
+                @foreach ($newsList as $index => $news)
+                    @if ($index < 2)
+                        <button
+                            class="slider-button cursor-pointer px-3 py-1 rounded-lg 
+                                {{ $index == 0 ? 'bg-yellow-500 text-white' : 'bg-gray-300 text-gray-700' }} font-bold"
+                            onclick="showSlide({{ $index }})">
+                            {{ $index + 1 }}
+                        </button>
+                    @endif
+                @endforeach
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="next-button cursor-pointer size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </div>
+
+            {{-- <div class="max-w-5xl mx-auto bg-gray-200 p-6 rounded-2xl shadow-lg">
                 <div class="relative">
                     <div class="slide">
                         <div class="flex flex-col md:flex-row gap-6">
@@ -156,7 +211,7 @@
                     stroke="currentColor" class="next-button cursor-pointer size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-            </div>
+            </div> --}}
         </section>
         {{-- End Berita Acara --}}
 

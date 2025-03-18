@@ -10,12 +10,23 @@ class News extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $table = 'news';
+    protected $primaryKey = 'id_news';
+
+    protected $fillable = [
+        'image_news',
+        'date',
+        'news_headline',
+        'news_content',
+        'tag',
+        'slug',
+        'user_id',
+    ];
     protected function casts(): array
     {
         return [
             'date' => 'datetime',
-            'tag' => 'array', // Simpan tags dalam format JSON
+            'tag' => 'array',
         ];
     }
 

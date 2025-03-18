@@ -47,7 +47,7 @@ class AspirationResource extends Resource
                     ->searchable(),
 
                 TextColumn::make('date')
-                    ->label('Date')
+                    ->label('Tanggal')
                     ->date('d M Y')
                     ->sortable(),
             ])

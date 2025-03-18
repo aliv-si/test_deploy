@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <title>HIMASI - {{ $department->name_department }}</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 </head>
 
 <body class="bg-white">
@@ -16,7 +16,7 @@
     <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-            <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
+            <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-8 w-8">
             <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
         </div>
 
@@ -128,11 +128,11 @@
                     </div>
 
                     @if ($department->work_program)
-                        <ul class="mt-4 text-primary-300 list-disc list-inside space-y-2 font-poppins">
+                        <ol class="mt-4 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
                             @foreach (explode(',', $department->work_program) as $program)
                                 <li>{{ trim($program) }}</li>
                             @endforeach
-                        </ul>
+                        </ol>
                     @else
                         <p class="mt-4 text-primary-300/80 italic">
                             Belum ada program kerja yang ditambahkan
@@ -152,8 +152,8 @@
 
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
-                        <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo SI.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
+                        <img src="{{ asset('img/logo SI.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">

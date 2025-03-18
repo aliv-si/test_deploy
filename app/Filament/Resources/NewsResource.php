@@ -8,7 +8,10 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
@@ -28,16 +31,41 @@ class NewsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('news_headline')
-                ->label('Judul Berita'),
-                DateTimePicker::make('date')
-                    ->seconds(false)
-                    ->label('Tanggal'),
-                TextInput::make('news_content')
-                ->label('Isi Berita'),
                 FileUpload::make('image_news')
-                ->label('Gambar Berita')
-                ->columnSpan(2),
+                    ->image()
+                    ->label('Gambar Berita')
+                    ->directory('news-images')
+                    ->required(),
+
+                DateTimePicker::make('date')
+                    ->label('Tanggal')
+                    ->seconds(false)
+                    ->required(),
+
+                TextInput::make('news_headline')
+                    ->label('Judul Berita')
+                    ->required()
+                    ->maxLength(255),
+
+                Textarea::make('news_content')
+                    ->label('Isi Berita')
+                    ->required(),
+
+                TagsInput::make('tag')
+                    ->label('Tag')
+                    ->placeholder('Pisahkan dengan koma'),
+
+                TextInput::make('slug')
+                    ->label('Slug')
+                    ->required()
+                    ->unique(News::class, 'slug', ignoreRecord: true),
+
+                Select::make('user_id')
+                    ->label('Penulis')
+                    ->relationship('user', 'name')
+                    ->default(auth()->id())
+                    ->disabled(),
+
             ]);
     }
 
@@ -45,27 +73,32 @@ class NewsResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('news_headline')
-                ->label('Judul Berita'),
-                TextColumn::make('date')
-                ->label('Tanggal Berita')
-                ->date('d M Y'),
-                TextColumn::make('news_content')
-                ->label('Isi Berita'),
                 ImageColumn::make('image_news')
-                ->label('Gambar Berita'),
+                    ->label('Gambar Berita'),
+
+                TextColumn::make('news_headline')
+                    ->label('Judul Berita')
+                    ->searchable(),
+
+                TextColumn::make('date')
+                    ->label('Tanggal Berita')
+                    ->date('d M Y'),
+
+                TextColumn::make('tag')
+                    ->label('Tag')
+                    ->badge(),
+
+                TextColumn::make('user.name')
+                    ->label('Penulis')
+                    ->sortable(),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

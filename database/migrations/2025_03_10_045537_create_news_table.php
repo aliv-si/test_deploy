@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->id('id_berita');
+            $table->id('id_news');
             $table->string('image_news', 255);
             $table->dateTime('date');
             $table->string('news_headline', 255);
             $table->text('news_content');
             $table->string('tag', 255);
             $table->string('slug', 255);
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->default(1);
             $table->timestamps();
         });
     }

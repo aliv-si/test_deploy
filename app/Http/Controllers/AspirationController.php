@@ -9,7 +9,6 @@ class AspirationController extends Controller
 {
     public function store(Request $request)
     {
-        // dd($request->all());
 
         $request->validate([
             'email_student' => 'required|email',

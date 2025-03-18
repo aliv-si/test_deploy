@@ -73,9 +73,23 @@
                 <h2 class="text-3xl font-poppins text-primary-300 font-bold">Bank Soal</h2>
                 <div class="w-24 h-1.5 bg-black mt-1"></div>
             </div>
-        
+
+            <!-- Form Pencarian yang lebih responsif -->
+            <div class="flex flex-col sm:flex-row sm:justify-end mb-4">
+                <form method="GET" action="{{ route('banksoal') }}" class="flex flex-wrap gap-2">
+                    <input type="text" name="search" placeholder="Cari soal..."
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto"
+                        value="{{ request('search') }}">
+                    <button type="submit"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                        Cari
+                    </button>
+                </form>
+            </div>
+
+            <!-- Tambahkan wrapper dengan overflow-x-auto -->
             <div class="bg-gray-100 p-6 rounded-xl shadow-lg overflow-x-auto">
-                <table class="w-full min-w-[600px] border font-poppins border-gray-300 rounded-lg overflow-hidden">
+                <table class="w-full border font-poppins border-gray-300 rounded-lg">
                     <thead>
                         <tr class="bg-primary-900 text-primary-300 font-medium">
                             <th class="py-3 px-4 text-left border-r border-gray-300">No</th>
@@ -86,50 +100,30 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-300">
-                        <tr>
-                            <td class="py-3 px-4 font-semibold border-r border-gray-300">1</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Matematika Bisnis</td>
-                            <td class="py-3 px-4 border-r border-gray-300">1</td>
-                            <td class="py-3 px-4 border-r border-gray-300">UAS</td>
-                            <td class="py-3 px-4 whitespace-nowrap">
-                                <a href="#" class="text-blue-600 hover:underline">Download</a> |
-                                <a href="#" class="text-blue-600 hover:underline">Lihat Soal</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-semibold border-r border-gray-300">2</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 whitespace-nowrap">
-                                <a href="#" class="text-blue-600 hover:underline">Download</a> |
-                                <a href="#" class="text-blue-600 hover:underline">Lihat Soal</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-semibold border-r border-gray-300">3</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 whitespace-nowrap">
-                                <a href="#" class="text-blue-600 hover:underline">Download</a> |
-                                <a href="#" class="text-blue-600 hover:underline">Lihat Soal</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-semibold border-r border-gray-300">4</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 border-r border-gray-300">Data</td>
-                            <td class="py-3 px-4 whitespace-nowrap">
-                                <a href="#" class="text-blue-600 hover:underline">Download</a> |
-                                <a href="#" class="text-blue-600 hover:underline">Lihat Soal</a>
-                            </td>
-                        </tr>
+                        @forelse ($questions as $index => $question)
+                            <tr>
+                                <td class="py-3 px-4 font-semibold border-r border-gray-300">{{ $index + 1 }}</td>
+                                <td class="py-3 px-4 border-r border-gray-300">{{ $question->subject }}</td>
+                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ $question->semester }}</td>
+                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ strtoupper($question->category) }}
+                                </td>
+                                <td class="py-3 px-4 whitespace-nowrap">
+                                    <a href="{{ route('question.download', $question->id_soal) }}"
+                                        class="text-blue-600 hover:underline" download>Download</a> |
+                                    <a href="{{ route('question.view', $question->id_soal) }}"
+                                        class="text-blue-600 hover:underline" target="_blank">Lihat Soal</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center py-3 px-4 border border-gray-300">Tidak ada data
+                                    soal</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
-        </section>        
+        </section>
 
         {{-- End Bank Soal --}}
 
@@ -223,3 +217,4 @@
 </body>
 
 </html>
+
