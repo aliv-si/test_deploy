@@ -73,6 +73,9 @@ class NewsResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id_news')
+                    ->label('No'),
+                    
                 ImageColumn::make('image_news')
                     ->label('Gambar Berita'),
 
