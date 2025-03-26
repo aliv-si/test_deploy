@@ -29,7 +29,7 @@ class DashboardPanelProvider extends PanelProvider
             ->login()
             ->favicon(asset('img/favicon.png'))
             ->brandLogo(asset('img/favicon.png'))
-            ->brandLogoHeight('100px')
+            ->brandLogoHeight('50px')
             ->colors([
                 'primary' => Color::Amber,
             ])

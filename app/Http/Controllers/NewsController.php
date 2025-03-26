@@ -15,10 +15,17 @@ class NewsController extends Controller
         return view('pages.berita', compact('newsList', 'latestNews'));
     }
 
+    public function category($tag)
+    {
+        $newsList = News::whereJsonContains('tag', $tag)->get();
+        $latestNews = News::latest()->take(5)->get();
+        return view('pages.berita_category', compact('newsList', 'tag', 'latestNews'));
+    }
+
     public function show($slug)
     {
         $news = News::where('slug', $slug)->firstOrFail();
-        $latestNews = News::latest()->take(5)->get(); 
+        $latestNews = News::latest()->take(5)->get();
 
         return view('pages.detail-berita', compact('news', 'latestNews'));
     }

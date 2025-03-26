@@ -12,11 +12,13 @@ class AspirationController extends Controller
 
         $request->validate([
             'email_student' => 'required|email',
+            'class' => 'required|string|max:255',
             'aspiration' => 'required',
         ]);
 
         Aspiration::create([
             'email_student' => $request->email_student,
+            'class' => $request->class,
             'aspiration' => $request->aspiration,
             'date' => now(),
         ]);

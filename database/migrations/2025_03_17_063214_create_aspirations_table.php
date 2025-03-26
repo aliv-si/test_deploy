@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('aspirations', function (Blueprint $table) {
             $table->id('id_aspiration');
             $table->string('email_student');
+            $table->string('class', 10);
             $table->text('aspiration');
             $table->dateTime('date');
             $table->timestamps();

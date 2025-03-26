@@ -41,6 +41,11 @@ class AspirationResource extends Resource
                     ->searchable()
                     ->sortable(),
 
+                TextColumn::make('class')
+                    ->label('Kelas Mahasiswa')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('aspiration')
                     ->label('Isi Aspiration')
                     ->limit(100)

@@ -104,8 +104,10 @@
                             <tr>
                                 <td class="py-3 px-4 font-semibold border-r border-gray-300">{{ $index + 1 }}</td>
                                 <td class="py-3 px-4 border-r border-gray-300">{{ $question->subject }}</td>
-                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ $question->semester }}</td>
-                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ strtoupper($question->category) }}
+                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ $question->semester }}
+                                </td>
+                                <td class="py-3 px-4 border-r border-gray-300 text-center">
+                                    {{ strtoupper($question->category) }}
                                 </td>
                                 <td class="py-3 px-4 whitespace-nowrap">
                                     <a href="{{ route('question.download', $question->id_soal) }}"

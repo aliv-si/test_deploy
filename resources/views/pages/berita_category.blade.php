@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - Berita</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>HIMASI - {{ $tag }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-            <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
+            <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-8 w-8">
             <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
         </div>
 
@@ -78,10 +78,16 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
                 <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Berita</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4 text-primary-200">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <a href="/berita/tag/{{ $tag }}"
+                    class="text-primary-300 hover:underline font-poppins font-medium">{{ $tag }}</a>
             </nav>
 
             <!-- Header Berita Terbaru dengan Garis Hitam -->
-            <h1 class="text-3xl font-bold font-poppins text-primary-300 mb-1">BERITA TERBARU</h1>
+            <h1 class="text-3xl font-bold font-poppins text-primary-300 mb-1">{{ $tag }}</h1>
             <div class="w-32 h-1.5 bg-primary-300 mb-4"></div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -135,9 +141,7 @@
                 </div>
 
                 <!-- Sidebar Berita Terbaru -->
-                <aside
-                    class="p-4
-                                            border-t md:border-none order-last md:order-none">
+                <aside class="p-4 border-t md:border-none order-last md:order-none">
                     <h2
                         class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4 text-left">
                         BERITA TERBARU
@@ -154,8 +158,7 @@
                                 </p>
                             </li>
                         @empty
-                            <li class="text-gray-500 text-sm font-poppins">Belum ada berita
-                                terbaru.</li>
+                            <li class="text-gray-500 text-sm font-poppins">Belum ada berita terbaru.</li>
                         @endforelse
                     </ul>
                 </aside>
@@ -172,8 +175,8 @@
 
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
-                        <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo SI.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
+                        <img src="{{ asset('img/logo SI.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <!-- Grid 3 Kolom -->
@@ -253,4 +256,3 @@
 </body>
 
 </html>
-

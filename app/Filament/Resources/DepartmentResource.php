@@ -58,13 +58,14 @@ class DepartmentResource extends Resource
                     ->label('Deskripsi Department')
                     ->limit(25),
                 TextColumn::make('work_program')
-                    ->label('Program Kerja'),
+                    ->label('Program Kerja')
+                    ->limit(25),
                 ImageColumn::make('icon')
                     ->circular()
                     ->label('Icon'),
                 ImageColumn::make('image_struktur')
                     ->label('Gambar Struktur'),
-                    
+
 
 
             ])

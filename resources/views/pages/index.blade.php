@@ -101,7 +101,6 @@
                 <div class="relative">
                     @foreach ($newsList as $index => $news)
                         @if ($index < 2)
-                            {{-- Batasi hanya 2 berita yang muncul --}}
                             <div class="slide {{ $index == 0 ? '' : 'hidden' }}">
                                 <div class="flex flex-col md:flex-row gap-6">
                                     <div class="flex-1">
@@ -152,66 +151,6 @@
                 </svg>
             </div>
 
-            {{-- <div class="max-w-5xl mx-auto bg-gray-200 p-6 rounded-2xl shadow-lg">
-                <div class="relative">
-                    <div class="slide">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="flex-1">
-                                <h2
-                                    class="text-lg font-poppins font-bold text-primary-300 border-b-4 border-primary-200 w-fit pb-1 mb-2">
-                                    SEMINAR
-                                </h2>
-                                <h1 class="text-2xl font-bold text-primary-300 font-poppins">Seminar Publik Speaking
-                                </h1>
-                                <p class="text-primary-300 font-poppins font-light mt-4 leading-relaxed">
-                                    PENDAFTARAN DITUTUP HARI INI PUKUL 16:00 WIB❗ SEMINAR PUBLIC SPEAKING
-                                    HIMASI✨ Membangun Personal Branding Dan Strategi Komunikasi. Ayo
-                                    daftarkan dirimu dan ikuti Seminar
-                                </p>
-                            </div>
-                            <div class="flex-1 flex justify-center">
-                                <a href=""><img src="img/seminar.png" alt="Seminar Poster"
-                                        class="w-full max-w-sm rounded-lg shadow-md" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide hidden">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="flex-1">
-                                <h2
-                                    class="text-lg font-semibold text-gray-700 border-b-4 border-yellow-500 w-fit pb-1 mb-2">
-                                    GEMASI
-                                </h2>
-                                <h1 class="text-2xl font-bold text-gray-900">Gemasi 2025</h1>
-                                <p class="text-gray-700 mt-4 leading-relaxed">
-                                    Haii sobat sisforma ✨ Program studi Sistem Informasi Universitas Amikom Yogyakarta
-                                    kembali menyelenggarakan Gelar Karya Mahasiswa Sistem Informasi (GEMASI) 2025. Yuk
-                                    persiapkan tim dan karya terbaik kamu untuk menjadi champion di GEMASI 2025🎊🎊
-                                </p>
-                            </div>
-                            <div class="flex-1 flex justify-center">
-                                <a href=""><img src="img/gemasi.png" alt="Workshop Poster"
-                                        class="w-full max-w-sm rounded-lg shadow-md" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-6 flex justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="prev-button cursor-pointer size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                </svg>
-                <button
-                    class="slider-button cursor-pointer px-3 py-1 rounded-lg bg-yellow-500 text-white font-bold">1</button>
-                <button
-                    class="slider-button cursor-pointer px-3 py-1 rounded-lg bg-gray-300 text-gray-700 font-bold">2</button>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="next-button cursor-pointer size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </div> --}}
         </section>
         {{-- End Berita Acara --}}
 
@@ -253,7 +192,14 @@
                             </label>
                             <input type="email" name="email_student" id="email_student"
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                required>
+                                placeholder="Masukkan Email" required>
+                            {{-- Input Kelas --}}
+                            <label for="class" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                Kelas <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" name="class" id="class"
+                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                placeholder="Masukkan Kelas"required>
 
                             <!-- Input Aspirasi -->
                             <label for="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
@@ -261,7 +207,7 @@
                             </label>
                             <textarea name="aspiration" id="aspiration" rows="4"
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                required></textarea>
+                                placeholder="Sampaikan Aspirasimu!" required></textarea>
 
                             <!-- Tombol Kirim -->
                             <button type="submit"

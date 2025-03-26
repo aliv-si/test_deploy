@@ -82,11 +82,14 @@
                     stroke="currentColor" class="w-4 h-4 text-primary-200">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-                <a href="#" class="text-primary-300 hover:underline font-poppins font-medium">Lomba</a>
+                <span class="text-primary-300 font-poppins font-medium">{{ $news->news_headline }}</span>
+                {{-- <a href="/berita/tag/{{ $tag }}"
+                    class="text-primary-300 hover:underline font-poppins font-medium">{{ $news->news_headline }}}</a> --}}
             </nav>
 
             {{-- Judul --}}
-            <h1 class="text-2xl font-semibold font-poppins text-primary-300 mb-4 pb-1 text-left">Seminar Publik Speaking
+            <h1 class="text-2xl font-semibold font-poppins text-primary-300 mb-4 pb-1 text-left">
+                {{ $news->news_headline }}
             </h1>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

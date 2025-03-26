@@ -37,10 +37,14 @@ Route::get('/banksoal', function () {
 Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/aspiration/store', [AspirationController::class, 'store'])->name('aspiration.store');
+// Route::get('/aspirations', [AspirationController::class, 'index'])->name('aspiration.index');
+
 
 Route::get('/department', [DepartmentController::class, 'index'])->name('department');
 Route::get('/department/{id_department}', [DepartmentController::class, 'show'])->name('department.detail');
+
 Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/berita/tag/{tag}', [NewsController::class, 'category'])->name('news.category');
 
 Route::get('/berita', [NewsController::class, 'index'])->name('berita');
 Route::get('/banksoal', [QuestionBankController::class, 'index'])->name('banksoal');
