@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $newsList = News::latest()->get();
+        $newsList = News::latest()->paginate(5);
         $latestNews = News::latest()->take(5)->get();
 
         return view('pages.berita', compact('newsList', 'latestNews'));
@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function category($tag)
     {
-        $newsList = News::whereJsonContains('tag', $tag)->get();
+        $newsList = News::whereJsonContains('tag', $tag)->paginate(5);
         $latestNews = News::latest()->take(5)->get();
         return view('pages.berita_category', compact('newsList', 'tag', 'latestNews'));
     }

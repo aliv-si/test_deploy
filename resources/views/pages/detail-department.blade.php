@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
+    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <title>HIMASI - {{ $department->name_department }}</title>
-    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
 </head>
 
 <body class="bg-white">

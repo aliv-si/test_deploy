@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIMASI - Sistem Informasi Amikom</title>
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
+    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - Sistem Informasi Amikom</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
 <body class="bg-white">

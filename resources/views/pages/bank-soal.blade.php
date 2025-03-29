@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
+    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
     <title>HIMASI - Bank Soal</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
 <body>
@@ -124,6 +126,12 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                {{-- Pagination --}}
+                <div class="mt-6 flex justify-center">
+                    {{ $questions->links() }}
+                </div>
+                {{-- End Pagination --}}
             </div>
         </section>
 

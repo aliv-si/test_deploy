@@ -13,7 +13,7 @@ class QuestionBankController extends Controller
 
         $questions = QuestionBank::when($search, function ($query, $search) {
             return $query->where('subject', 'like', "%$search%");
-        })->get();
+        })->paginate(5);
 
         return view('pages.bank-soal', compact('questions'));
     }

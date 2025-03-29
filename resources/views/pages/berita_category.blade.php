@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
+    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <title>HIMASI - {{ $tag }}</title>
-    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
 <body>
@@ -115,8 +117,7 @@
 
                                 <div class="flex items-center text-sm text-gray-500 font-poppins mt-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"
-                                        class="w-4 h-4 mr-1 text-primary-300">
+                                        viewBox="0 0 24 24" class="w-4 h-4 mr-1 text-primary-300">
                                         <path
                                             d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0 1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z">
                                         </path>
@@ -124,9 +125,7 @@
                                     @foreach ($news->tag as $tag)
                                         <span>
                                             <a href="/berita/tag/{{ $tag }}"
-                                                class="hover:underline">{{ $tag }}
-
-                                            </a>
+                                                class="hover:underline">{{ $tag }}</a>
                                             @if (!$loop->last)
                                                 , &nbsp;
                                             @endif
@@ -137,7 +136,11 @@
                         </div>
                     @endforeach
 
-                    <!-- Tombol Pagination -->
+                    {{-- Pagination --}}
+                    <div class="flex justify-center mt-6">
+                        {{ $newsList->links() }}
+                    </div>
+                    {{-- End Pagination --}}
                 </div>
 
                 <!-- Sidebar Berita Terbaru -->

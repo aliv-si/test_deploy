@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
+    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <title>HIMASI - Berita</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
 <body>
@@ -79,11 +81,11 @@
                 </svg>
                 <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Berita</a>
             </nav>
-
+        
             <!-- Header Berita Terbaru dengan Garis Hitam -->
             <h1 class="text-3xl font-bold font-poppins text-primary-300 mb-1">BERITA TERBARU</h1>
             <div class="w-32 h-1.5 bg-primary-300 mb-4"></div>
-
+        
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Konten Berita -->
                 <div class="md:col-span-2">
@@ -91,22 +93,22 @@
                         <div class="mb-6 border-b border-black pb-6 flex flex-col md:flex-row items-start gap-4">
                             <img src="{{ asset('storage/' . $news->image_news) }}" alt="{{ $news->news_headline }}"
                                 class="w-[250px] h-[300px] md:w-[300px] md:h-[350px] rounded-lg shadow object-cover aspect-[4/5]">
-
+        
                             <div>
                                 <a href="{{ route('news.show', $news->slug) }}">
                                     <h2 class="text-xl font-bold font-poppins text-primary-300 mb-1 hover:underline">
                                         {{ $news->news_headline }}
                                     </h2>
                                 </a>
-
+        
                                 <p class="text-sm text-gray-500 font-poppins font-light">
                                     {{ \Carbon\Carbon::parse($news->date)->format('d F Y') }}
                                 </p>
-
+        
                                 <p class="text-primary-300 font-albert font-light mt-2">
                                     {{ Str::limit($news->news_content, 200, '...') }}
                                 </p>
-
+        
                                 <div class="flex items-center text-sm text-gray-500 font-poppins mt-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"
@@ -119,7 +121,6 @@
                                         <span>
                                             <a href="/berita/tag/{{ $tag }}"
                                                 class="hover:underline">{{ $tag }}
-
                                             </a>
                                             @if (!$loop->last)
                                                 , &nbsp;
@@ -130,16 +131,17 @@
                             </div>
                         </div>
                     @endforeach
-
-                    <!-- Tombol Pagination -->
+        
+                    {{-- Pagination --}}
+                    <div class="flex justify-center mt-6">
+                        {{ $newsList->links() }}
+                    </div>
+                    {{-- End Pagination --}}
                 </div>
-
+        
                 <!-- Sidebar Berita Terbaru -->
-                <aside
-                    class="p-4
-                                            border-t md:border-none order-last md:order-none">
-                    <h2
-                        class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4 text-left">
+                <aside class="p-4 border-t md:border-none order-last md:order-none">
+                    <h2 class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4 text-left">
                         BERITA TERBARU
                     </h2>
                     <ul class="mt-4 space-y-3">
@@ -154,13 +156,13 @@
                                 </p>
                             </li>
                         @empty
-                            <li class="text-gray-500 text-sm font-poppins">Belum ada berita
-                                terbaru.</li>
+                            <li class="text-gray-500 text-sm font-poppins">Belum ada berita terbaru.</li>
                         @endforelse
                     </ul>
                 </aside>
             </div>
         </section>
+        
 
         {{-- End Berita --}}
 
