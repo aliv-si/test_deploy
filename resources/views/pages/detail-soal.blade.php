@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - Berita</title>
-    <link rel="icon" type="image/png" href="img/favicon.ico">
+    <title>HIMASI - Bank Soal</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
 </head>
 
 <body>
@@ -16,7 +15,7 @@
     <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-            <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
+            <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-8 w-8">
             <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
         </div>
 
@@ -65,104 +64,75 @@
         </div>
     </nav>
     {{-- End Navbar --}}
-
     {{-- Main Content --}}
     <main>
-        {{-- Berita --}}
-        <section class="max-w-6xl mx-auto mt-6 p-4 pb-6">
-            <!-- Breadcrumb Navigation -->
-            <nav class="text-lg mb-4 flex items-center space-x-2">
-                <a href="/" class="text-primary-600 hover:underline font-poppins font-medium">Home</a>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-4 h-4 text-primary-200">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-                <a href="/berita" class="text-primary-300 hover:underline font-poppins font-medium">Berita</a>
-            </nav>
-        
-            <!-- Header Berita Terbaru dengan Garis Hitam -->
-            <h1 class="text-3xl font-bold font-poppins text-primary-300 mb-1">BERITA TERBARU</h1>
-            <div class="w-32 h-1.5 bg-primary-300 mb-4"></div>
-        
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Konten Berita -->
-                <div class="md:col-span-2">
-                    @foreach ($newsList as $news)
-                        <div class="mb-6 border-b border-black pb-6 flex flex-col md:flex-row items-start gap-4">
-                            <img src="{{ asset('storage/' . $news->image_news) }}" alt="{{ $news->news_headline }}"
-                                class="w-[250px] h-[300px] md:w-[300px] md:h-[350px] rounded-lg shadow object-cover aspect-[4/5]">
-        
-                            <div>
-                                <a href="{{ route('news.show', $news->slug) }}">
-                                    <h2 class="text-xl font-bold font-poppins text-primary-300 mb-1 hover:underline">
-                                        {{ $news->news_headline }}
-                                    </h2>
-                                </a>
-        
-                                <p class="text-sm text-gray-500 font-poppins font-light">
-                                    {{ \Carbon\Carbon::parse($news->date)->format('d F Y') }}
-                                </p>
-        
-                                <p class="text-primary-300 font-albert font-light mt-2">
-                                    {{ Str::limit($news->news_content, 200, '...') }}
-                                </p>
-        
-                                <div class="flex items-center text-sm text-gray-500 font-poppins mt-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"
-                                        class="w-4 h-4 mr-1 text-primary-300">
-                                        <path
-                                            d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0 1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z">
-                                        </path>
-                                    </svg>
-                                    @foreach ($news->tag as $tag)
-                                        <span>
-                                            <a href="/berita/tag/{{ $tag }}"
-                                                class="hover:underline">{{ $tag }}
-                                            </a>
-                                            @if (!$loop->last)
-                                                , &nbsp;
-                                            @endif
-                                        </span>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-        
-                    {{-- Pagination --}}
-                    <div class="flex justify-center mt-6">
-                        {{ $newsList->links() }}
-                    </div>
-                    {{-- End Pagination --}}
-                </div>
-        
-                <!-- Sidebar Berita Terbaru -->
-                <aside class="p-4 border-t md:border-none order-last md:order-none">
-                    <h2 class="text-xl font-semibold font-poppins text-primary-300 border-b-2 border-primary-200 pb-4 text-left">
-                        BERITA TERBARU
-                    </h2>
-                    <ul class="mt-4 space-y-3">
-                        @forelse ($latestNews as $news)
-                            <li class="border-b border-gray-300 pb-2">
-                                <a href="{{ route('news.show', $news->slug) }}"
-                                    class="text-primary-300 font-poppins hover:underline">
-                                    {{ $news->news_headline }}
-                                </a>
-                                <p class="text-gray-500 text-sm font-poppins">
-                                    {{ \Carbon\Carbon::parse($news->date)->translatedFormat('d F Y') }}
-                                </p>
-                            </li>
+        {{-- Bank Soal --}}
+        <section class="max-w-7xl mx-auto px-6 md:px-10 py-12">
+            <div class="flex flex-col items-center pb-4">
+                <h2 class="text-3xl font-poppins text-primary-300 font-bold">Bank Soal</h2>
+                <div class="w-24 h-1.5 bg-black mt-1"></div>
+            </div>
+
+            <!-- Form Pencarian yang lebih responsif -->
+            <div class="flex flex-col sm:flex-row sm:justify-end mb-4">
+                <form method="GET" action="{{ route('banksoal') }}" class="flex flex-wrap gap-2">
+                    <input type="text" name="search" placeholder="Cari soal..."
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto"
+                        value="{{ request('search') }}">
+                    <button type="submit"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                        Cari
+                    </button>
+                </form>
+            </div>
+
+            <!-- Tambahkan wrapper dengan overflow-x-auto -->
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg overflow-x-auto">
+                <table class="w-full border font-poppins border-gray-300 rounded-lg">
+                    <thead>
+                        <tr class="bg-primary-900 text-primary-300 font-medium">
+                            <th class="py-3 px-4 text-left border-r border-gray-300">No</th>
+                            <th class="py-3 px-4 text-left border-r border-gray-300">Mata Kuliah</th>
+                            <th class="py-3 px-4 text-left border-r border-gray-300">Semester</th>
+                            <th class="py-3 px-4 text-left border-r border-gray-300">Kategori</th>
+                            <th class="py-3 px-4 text-left">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-300">
+                        @forelse ($questions as $index => $question)
+                            <tr>
+                                <td class="py-3 px-4 font-semibold border-r border-gray-300">{{ $index + 1 }}</td>
+                                <td class="py-3 px-4 border-r border-gray-300">{{ $question->subject }}</td>
+                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ $question->semester }}
+                                </td>
+                                <td class="py-3 px-4 border-r border-gray-300 text-center">
+                                    {{ strtoupper($question->category) }}
+                                </td>
+                                <td class="py-3 px-4 whitespace-nowrap">
+                                    <a href="{{ route('question.download', $question->id_soal) }}"
+                                        class="text-blue-600 hover:underline" download>Download</a> |
+                                    <a href="{{ route('question.view', $question->id_soal) }}"
+                                        class="text-blue-600 hover:underline" target="_blank">Lihat Soal</a>
+                                </td>
+                            </tr>
                         @empty
-                            <li class="text-gray-500 text-sm font-poppins">Belum ada berita terbaru.</li>
+                            <tr>
+                                <td colspan="5" class="text-center py-3 px-4 border border-gray-300">Tidak ada data
+                                    soal</td>
+                            </tr>
                         @endforelse
-                    </ul>
-                </aside>
+                    </tbody>
+                </table>
+
+                {{-- Pagination --}}
+                <div class="mt-6 flex justify-center">
+                    {{ $questions->links() }}
+                </div>
+                {{-- End Pagination --}}
             </div>
         </section>
-        
 
-        {{-- End Berita --}}
+        {{-- End Bank Soal --}}
 
         {{-- Footer --}}
         <footer class="bg-white py-8">
@@ -249,6 +219,7 @@
         {{-- End Footer --}}
     </main>
     {{-- End Main Content --}}
+
     <script src="js/script.js"></script>
 </body>
 

@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
-    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
     <title>HIMASI - Bank Soal</title>
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
@@ -76,62 +73,26 @@
                 <div class="w-24 h-1.5 bg-black mt-1"></div>
             </div>
 
-            <!-- Form Pencarian yang lebih responsif -->
-            <div class="flex flex-col sm:flex-row sm:justify-end mb-4">
-                <form method="GET" action="{{ route('banksoal') }}" class="flex flex-wrap gap-2">
-                    <input type="text" name="search" placeholder="Cari soal..."
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto"
-                        value="{{ request('search') }}">
-                    <button type="submit"
-                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 w-full sm:w-auto">
-                        Cari
-                    </button>
-                </form>
-            </div>
-
-            <!-- Tambahkan wrapper dengan overflow-x-auto -->
             <div class="bg-gray-100 p-6 rounded-xl shadow-lg overflow-x-auto">
-                <table class="w-full border font-poppins border-gray-300 rounded-lg">
-                    <thead>
-                        <tr class="bg-primary-900 text-primary-300 font-medium">
-                            <th class="py-3 px-4 text-left border-r border-gray-300">No</th>
-                            <th class="py-3 px-4 text-left border-r border-gray-300">Mata Kuliah</th>
-                            <th class="py-3 px-4 text-left border-r border-gray-300">Semester</th>
-                            <th class="py-3 px-4 text-left border-r border-gray-300">Kategori</th>
-                            <th class="py-3 px-4 text-left">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-300">
-                        @forelse ($questions as $index => $question)
-                            <tr>
-                                <td class="py-3 px-4 font-semibold border-r border-gray-300">{{ $index + 1 }}</td>
-                                <td class="py-3 px-4 border-r border-gray-300">{{ $question->subject }}</td>
-                                <td class="py-3 px-4 border-r border-gray-300 text-center">{{ $question->semester }}
-                                </td>
-                                <td class="py-3 px-4 border-r border-gray-300 text-center">
-                                    {{ strtoupper($question->category) }}
-                                </td>
-                                <td class="py-3 px-4 whitespace-nowrap">
-                                    <a href="{{ route('question.download', $question->id_soal) }}"
-                                        class="text-blue-600 hover:underline" download>Download</a> |
-                                    <a href="{{ route('question.view', $question->id_soal) }}"
-                                        class="text-blue-600 hover:underline" target="_blank">Lihat Soal</a>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center py-3 px-4 border border-gray-300">Tidak ada data
-                                    soal</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                <div class="container mx-auto flex justify-center gap-8 flex-wrap">
+                    <!-- Kartu Soal UTS -->
+                    <a href="{{ route('detail.soal', ['kategori' => 'uts']) }}" class="block">
+                        <div class="bg-white rounded-2xl shadow-md p-6 w-48 text-center hover:shadow-lg transition">
+                            <img src="img/uts.png" alt="Icon UTS" class="w-16 h-16 mx-auto mb-4" />
+                            <p class="text-sm text-gray-500 font-poppins">Total : 10 Soal</p>
+                            <h3 class="mt-1 font-bold text-sm font-poppins">SOAL UTS</h3>
+                        </div>
+                    </a>
 
-                {{-- Pagination --}}
-                <div class="mt-6 flex justify-center">
-                    {{ $questions->links() }}
+                    <!-- Kartu Soal UAS -->
+                    <a href="{{ route('detail.soal', ['kategori' => 'uas']) }}" class="block">
+                        <div class="bg-white rounded-2xl shadow-md p-6 w-48 text-center hover:shadow-lg transition">
+                            <img src="img/uas.png" alt="Icon UAS" class="w-16 h-16 mx-auto mb-4" />
+                            <p class="text-sm text-gray-500 font-poppins">Total : 10 Soal</p>
+                            <h3 class="mt-1 font-bold text-sm font-poppins">SOAL UAS</h3>
+                        </div>
+                    </a>
                 </div>
-                {{-- End Pagination --}}
             </div>
         </section>
 
@@ -146,7 +107,7 @@
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
                         <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo SI.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="img/logo-si.png" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <!-- Grid 3 Kolom -->

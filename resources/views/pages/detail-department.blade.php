@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-18BfDmS3.css') }}">
-    <script src="{{ asset('build/assets/app-18BfDmS3.js') }}" defer></script> --}}
+    <title>HIMASI - {{ $department->name_department }}</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>HIMASI - {{ $department->name_department }}</title>
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
 </head>
 
@@ -155,7 +153,7 @@
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
                         <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
-                        <img src="{{ asset('img/logo SI.png') }}" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">

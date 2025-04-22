@@ -7,14 +7,28 @@ use Illuminate\Http\Request;
 
 class QuestionBankController extends Controller
 {
-    public function index(Request $request)
+    public function index()
+    {
+        // Misalnya, mengambil semua data dari tabel QuestionBank
+        $questions = QuestionBank::all();
+
+        // Mengembalikan view dan mengirim data ke view
+        return view('pages.bank-soal', compact('questions'));
+    }
+
+    public function detail($kategori, Request $request)
     {
         $search = $request->input('search');
 
-        $questions = QuestionBank::when($search, function ($query, $search) {
-            return $query->where('subject', 'like', "%$search%");
-        })->paginate(5);
+        $questions = QuestionBank::where('category', $kategori)
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($q) use ($search) {
+                    $q->where('subject', 'like', "%$search%")
+                        ->orWhere('semester', 'like', "%$search%");
+                });
+            })
+            ->paginate(5);
 
-        return view('pages.bank-soal', compact('questions'));
+        return view('pages.detail-soal', compact('questions'));
     }
 }

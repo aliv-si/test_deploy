@@ -17,7 +17,9 @@ class NewsController extends Controller
 
     public function category($tag)
     {
-        $newsList = News::whereJsonContains('tag', $tag)->paginate(5);
+        $newsList = News::whereJsonContains('tag', $tag)
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
         $latestNews = News::latest()->take(5)->get();
         return view('pages.berita_category', compact('newsList', 'tag', 'latestNews'));
     }

@@ -64,3 +64,5 @@ Route::get('/banksoal/{id}', function ($id) {
     $question = App\Models\QuestionBank::findOrFail($id);
     return response()->file(storage_path('app/public/' . $question->file_path_soal));
 })->name('question.view');
+
+Route::get('/bank-soal/{kategori}', [QuestionBankController::class, 'detail'])->name('detail.soal');
