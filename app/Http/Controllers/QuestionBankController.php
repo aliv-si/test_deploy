@@ -29,6 +29,6 @@ class QuestionBankController extends Controller
             })
             ->paginate(5);
 
-        return view('pages.detail-soal', compact('questions'));
+        return view('pages.detail-soal', compact('questions', 'kategori'));
     }
 }
