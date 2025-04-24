@@ -143,8 +143,8 @@
 
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
-                        <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo-si.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
+                        <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <!-- Grid 3 Kolom -->

@@ -79,7 +79,7 @@
                     <a href="{{ route('detail.soal', ['kategori' => 'uts']) }}" class="block">
                         <div class="bg-white rounded-2xl shadow-md p-6 w-48 text-center hover:shadow-lg transition">
                             <img src="img/uts.png" alt="Icon UTS" class="w-16 h-16 mx-auto mb-4" />
-                            <p class="text-sm text-gray-500 font-poppins">Total : 10 Soal</p>
+                            <p class="text-sm text-gray-500 font-poppins">Total : {{ $totalUts }} Soal</p>
                             <h3 class="mt-1 font-bold text-sm font-poppins">SOAL UTS</h3>
                         </div>
                     </a>
@@ -88,7 +88,7 @@
                     <a href="{{ route('detail.soal', ['kategori' => 'uas']) }}" class="block">
                         <div class="bg-white rounded-2xl shadow-md p-6 w-48 text-center hover:shadow-lg transition">
                             <img src="img/uas.png" alt="Icon UAS" class="w-16 h-16 mx-auto mb-4" />
-                            <p class="text-sm text-gray-500 font-poppins">Total : 10 Soal</p>
+                            <p class="text-sm text-gray-500 font-poppins">Total : {{ $totalUas }} Soal</p>
                             <h3 class="mt-1 font-bold text-sm font-poppins">SOAL UAS</h3>
                         </div>
                     </a>

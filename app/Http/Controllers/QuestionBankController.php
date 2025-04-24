@@ -11,9 +11,11 @@ class QuestionBankController extends Controller
     {
         // Misalnya, mengambil semua data dari tabel QuestionBank
         $questions = QuestionBank::all();
+        $totalUts = QuestionBank::where('category', 'UTS')->count();
+        $totalUas = QuestionBank::where('category', 'UAS')->count();
 
         // Mengembalikan view dan mengirim data ke view
-        return view('pages.bank-soal', compact('questions'));
+        return view('pages.bank-soal', compact('questions', 'totalUts', 'totalUas'));
     }
 
     public function detail($kategori, Request $request)
