@@ -228,7 +228,6 @@
         {{-- End Footer --}}
     </main>
     {{-- End Main content --}}
-    <script src="js/script.js"></script>
 </body>
 
 </html>

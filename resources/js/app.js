@@ -1,4 +1,7 @@
 import './bootstrap';
+import Swal from 'sweetalert2'
+window.Swal = Swal
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript Loaded!");
 
@@ -58,3 +61,35 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Slider elements not found, skipping slider logic.");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('aspiration-form');
+
+    if (!form) {
+        console.warn("Form dengan ID 'aspiration-form' tidak ditemukan.");
+        return;
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: data.message,
+                        icon: 'success',
+                    });
+                }
+            });
+    });
+});
+
+
+

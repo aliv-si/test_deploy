@@ -185,7 +185,6 @@
     </main>
     {{-- End Main Content --}}
 
-    <script src="js/script.js"></script>
 </body>
 
 </html>

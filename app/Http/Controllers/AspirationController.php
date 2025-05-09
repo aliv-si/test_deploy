@@ -23,6 +23,7 @@ class AspirationController extends Controller
             'date' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Aspirasi berhasil dikirim!');
+        // return redirect()->back()->with('success', 'Aspirasi berhasil dikirim!');
+        return response()->json(['success' => true, 'message' => 'Aspirasi berhasil dikirim!']);
     }
 }
