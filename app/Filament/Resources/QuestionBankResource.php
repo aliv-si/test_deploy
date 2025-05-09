@@ -56,6 +56,12 @@ class QuestionBankResource extends Resource
                     ])
                     ->native(false)
                     ->required(),
+                TextInput::make('school_year')
+                    ->label('Tahun Ajaran')
+                    ->regex('/^\d{4}\/\d{4}$/') // format contoh: 2024/2025
+                    ->maxLength(9)
+                    ->placeholder('Contoh: 2024/2025')
+                    ->required(),
                 FileUpload::make('file_path_soal')
                     ->label('Upload Dokumen Soal PDF')
                     ->directory('documents')
@@ -85,7 +91,10 @@ class QuestionBankResource extends Resource
                         'uas' => 'success',
                     })
                     ->formatStateUsing(fn($state) => $state === 'uts' ? 'UTS' : 'UAS'),
-
+                TextColumn::make('school_year')
+                    ->label('Tahun Ajaran')
+                    ->sortable()
+                    ->searchable(),
                 IconColumn::make('file_path_soal')
                     ->label('Dokumen Soal')
                     ->icon(fn($state) => $state ? 'heroicon-o-document-text' : 'heroicon-o-x-circle')

@@ -21,6 +21,7 @@ class QuestionBank extends Model
         'subject',
         'semester',
         'category',
+        'school_year',
         'file_path_soal',
         'tanggal_upload'
     ];
