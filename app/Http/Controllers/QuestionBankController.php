@@ -29,6 +29,8 @@ class QuestionBankController extends Controller
                         ->orWhere('semester', 'like', "%$search%");
                 });
             })
+            ->orderBy('semester', 'asc')
+            ->orderBy('subject', 'asc')
             ->paginate(5);
 
         return view('pages.detail-soal', compact('questions', 'kategori'));

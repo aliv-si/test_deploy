@@ -12,79 +12,91 @@
 
 <body class="bg-white">
     <!-- Navbar -->
-    <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-            <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
-            <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
+    <nav class="bg-white shadow-md relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
+                    <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
+                </div>
+
+                <!-- Navigation Links (Desktop) -->
+                <ul class="hidden md:flex space-x-6 text-primary-300">
+                    <li><a href="/" class="relative hover:text-primary-600 font-poppins font-medium group">Home
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/profil" class="relative hover:text-primary-600 font-poppins font-medium group">Profil
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/department"
+                            class="relative hover:text-primary-600 font-poppins font-medium group">Departemen
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/berita" class="relative hover:text-primary-600 font-poppins font-medium group">Berita
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/banksoal" class="relative hover:text-primary-600 font-poppins font-medium group">Bank
+                            Soal
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                </ul>
+
+                <!-- Hamburger Button (Mobile) -->
+                <button id="menu-toggle" class="md:hidden focus:outline-none cursor-pointer">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+
+            </div>
         </div>
-
-        <!-- Navigation Links (Desktop) -->
-        <ul class="hidden md:flex space-x-6 text-primary-300">
-            <li><a href="/" class="relative hover:text-primary-600 font-poppins font-medium group">Home
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/profil" class="relative hover:text-primary-600 font-poppins font-medium group">Profil
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/department" class="relative hover:text-primary-600 font-poppins font-medium group">Departemen
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/berita" class="relative hover:text-primary-600 font-poppins font-medium group">Berita
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/banksoal" class="relative hover:text-primary-600 font-poppins font-medium group">Bank Soal
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-        </ul>
-
-        <!-- Hamburger Button (Mobile) -->
-        <button id="menu-toggle" class="md:hidden focus:outline-none cursor-pointer">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
-
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="absolute top-full left-0 w-full bg-white shadow-lg hidden md:hidden z-50 transition-all ease-in-out duration-300">
-            <ul class="flex flex-col space-y-3 p-4 text-primary-300">
-                <li><a href="/" class="block font-poppins font-medium pb-2">Home</a></li>
-                <li><a href="/profil" class="block font-poppins font-medium pb-2">Profil</a></li>
-                <li><a href="/department" class="block font-poppins font-medium pb-2">Departemen</a></li>
-                <li><a href="/berita" class="block font-poppins font-medium pb-2">Berita</a></li>
-                <li><a href="/banksoal" class="block font-poppins font-medium pb-2">Bank Soal</a></li>
-            </ul>
+            <div class="max-w-7xl mx-auto px-6 md:px-10">
+                <ul class="flex flex-col space-y-3 py-4 text-primary-300">
+                    <li><a href="/" class="block font-poppins font-medium pb-2">Home</a></li>
+                    <li><a href="/profil" class="block font-poppins font-medium pb-2">Profil</a></li>
+                    <li><a href="/department" class="block font-poppins font-medium pb-2">Departemen</a></li>
+                    <li><a href="/berita" class="block font-poppins font-medium pb-2">Berita</a></li>
+                    <li><a href="/banksoal" class="block font-poppins font-medium pb-2">Bank Soal</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main>
         {{-- Header --}}
-        <header class="relative flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-16">
+        <header class="relative py-16">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0">
                 <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25">
             </div>
 
-            <div class="relative md:w-1/2 text-center md:text-left">
-                <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
-                    Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
-                </h1>
-                <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div>
-                <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">
-                    Adaptif, Inovatif, Kreatif
-                </p>
-            </div>
+            <div class="max-w-7xl mx-auto px-6 md:px-10">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-between">
+                    <div class="relative md:w-1/2 text-center md:text-left">
+                        <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
+                            Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
+                        </h1>
+                        <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div>
+                        <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">
+                            Adaptif, Inovatif, Kreatif
+                        </p>
+                    </div>
 
-            <div class="relative md:w-1/2 flex justify-center">
-                <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
+                    <div class="relative md:w-1/2 flex justify-center mb-8 md:mb-0">
+                        <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -187,22 +199,20 @@
                         <form method="POST" action="{{ route('aspiration.store') }}" id="aspiration-form"
                             enctype="multipart/form-data">
                             @csrf
-                            <!-- Input Email -->
                             <label for="email_student" class="block text-primary-300 font-poppins font-semibold mb-1">
                                 Email <span class="text-red-500">*</span>
                             </label>
                             <input type="email" name="email_student" id="email_student"
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                placeholder="Masukkan Email" required>
-                            {{-- Input Kelas --}}
+                                placeholder="example@students.amikom.ac.id" pattern=".*@students\.amikom\.ac\.id$"
+                                required>
                             <label for="class" class="block text-primary-300 font-poppins font-semibold mb-1">
                                 Kelas <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="class" id="class"
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                placeholder="Masukkan Kelas"required>
+                                placeholder="Masukkan Kelas" required>
 
-                            <!-- Input Aspirasi -->
                             <label for="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
                                 Aspirasimu <span class="text-red-500">*</span>
                             </label>
@@ -210,13 +220,11 @@
                                 class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
                                 placeholder="Sampaikan Aspirasimu!" required></textarea>
 
-                            <!-- Tombol Kirim -->
                             <button type="submit"
                                 class="bg-primary-600 hover:bg-primary-700 cursor-pointer text-white font-poppins font-semibold px-6 py-2 rounded-lg shadow-md w-28 mx-auto block">
                                 Kirim
                             </button>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -231,8 +239,8 @@
 
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
-                        <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo-si.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
+                        <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <!-- Grid 3 Kolom -->
@@ -307,10 +315,10 @@
                 </div>
             </div>
         </footer>
-
         {{-- End Footer --}}
-
     </main>
+    {{-- End Main Content --}}
+
 </body>
 
 </html>

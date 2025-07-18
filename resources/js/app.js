@@ -73,20 +73,72 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const formData = new FormData(form);
+        const email = document.getElementById('email_student').value;
+        if (!email.endsWith('@students.amikom.ac.id')) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Email harus menggunakan domain @students.amikom.ac.id',
+            });
+            return;
+        }
 
-        fetch(form.action, {
+        const formData = new FormData(this);
+
+        fetch(this.action, {
             method: 'POST',
-            body: formData
+            body: formData,
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+            }
         })
-            .then(response => response.json())
+            .then(async response => {
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    let errorMessages = '';
+
+                    for (const key in errorData.errors) {
+                        errorMessages += `${errorData.errors[key][0]}\n`;
+                    }
+
+                    Swal.fire({
+                        title: 'Validasi Gagal!',
+                        text: errorMessages,
+                        icon: 'error',
+                    });
+
+                    throw new Error('Validasi gagal');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     Swal.fire({
-                        title: data.message,
                         icon: 'success',
+                        title: 'Berhasil!',
+                        text: data.message,
+                    }).then(() => {
+                        // Clear all form fields
+                        document.getElementById('email_student').value = '';
+                        document.getElementById('class').value = '';
+                        document.getElementById('aspiration').value = '';
+                        form.reset();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: data.message || 'Terjadi kesalahan saat mengirim aspirasi.',
                     });
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'Terjadi kesalahan saat mengirim aspirasi.',
+                });
             });
     });
 });

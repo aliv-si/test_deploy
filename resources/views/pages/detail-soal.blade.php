@@ -5,62 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIMASI - Bank Soal</title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+    <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
+    <script src="/build/assets/app-DZflx3cY.js" defer></script>
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
 </head>
 
 <body>
-    {{-- Navbar --}}
-    <nav class="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-            <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-8 w-8">
-            <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-8 w-8">
+                    <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
+                </div>
+
+                <!-- Navigation Links (Desktop) -->
+                <ul class="hidden md:flex space-x-6 text-primary-300">
+                    <li><a href="/" class="relative hover:text-primary-600 font-poppins font-medium group">Home
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/profil" class="relative hover:text-primary-600 font-poppins font-medium group">Profil
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/department"
+                            class="relative hover:text-primary-600 font-poppins font-medium group">Departemen
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/berita" class="relative hover:text-primary-600 font-poppins font-medium group">Berita
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                    <li><a href="/banksoal" class="relative hover:text-primary-600 font-poppins font-medium group">Bank
+                            Soal
+                            <span
+                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                    </li>
+                </ul>
+
+                <!-- Hamburger Button (Mobile) -->
+                <button id="menu-toggle" class="md:hidden focus:outline-none cursor-pointer">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+
+            </div>
         </div>
-
-        <!-- Navigation Links (Desktop) -->
-        <ul class="hidden md:flex space-x-6 text-primary-300">
-            <li><a href="/" class="relative hover:text-primary-600 font-poppins font-medium group">Home
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/profil" class="relative hover:text-primary-600 font-poppins font-medium group">Profil
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/department" class="relative hover:text-primary-600 font-poppins font-medium group">Departemen
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/berita" class="relative hover:text-primary-600 font-poppins font-medium group">Berita
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-            <li><a href="/banksoal" class="relative hover:text-primary-600 font-poppins font-medium group">Bank Soal
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-            </li>
-        </ul>
-
-        <!-- Hamburger Button (Mobile) -->
-        <button id="menu-toggle" class="md:hidden focus:outline-none cursor-pointer">
-            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
-
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="absolute top-full left-0 w-full bg-white shadow-lg hidden md:hidden z-50 transition-all ease-in-out duration-300">
-            <ul class="flex flex-col space-y-3 p-4 text-primary-300">
-                <li><a href="/" class="block font-poppins font-medium pb-2">Home</a></li>
-                <li><a href="/profil" class="block font-poppins font-medium pb-2">Profil</a></li>
-                <li><a href="/department" class="block font-poppins font-medium pb-2">Departemen</a></li>
-                <li><a href="/berita" class="block font-poppins font-medium pb-2">Berita</a></li>
-                <li><a href="/banksoal" class="block font-poppins font-medium pb-2">Bank Soal</a></li>
-            </ul>
+            <div class="max-w-7xl mx-auto px-6 md:px-10">
+                <ul class="flex flex-col space-y-3 py-4 text-primary-300">
+                    <li><a href="/" class="block font-poppins font-medium pb-2">Home</a></li>
+                    <li><a href="/profil" class="block font-poppins font-medium pb-2">Profil</a></li>
+                    <li><a href="/department" class="block font-poppins font-medium pb-2">Departemen</a></li>
+                    <li><a href="/berita" class="block font-poppins font-medium pb-2">Berita</a></li>
+                    <li><a href="/banksoal" class="block font-poppins font-medium pb-2">Bank Soal</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     {{-- End Navbar --}}
@@ -81,7 +89,7 @@
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto"
                         value="{{ request('search') }}">
                     <button type="submit"
-                        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg cursor-pointer hover:bg-blue-700 w-full sm:w-auto">
                         Cari
                     </button>
                 </form>
@@ -130,7 +138,7 @@
 
                 {{-- Pagination --}}
                 <div class="mt-6 flex justify-center">
-                    {{ $questions->links() }}
+                    {{ $questions->appends(['search' => request('search')])->links() }}
                 </div>
                 {{-- End Pagination --}}
             </div>
@@ -180,9 +188,10 @@
                             </p>
                             <h3 class="text-lg font-medium font-poppins mt-4">Social Media</h3>
                             <div class="flex space-x-4 mt-2">
-                                <a href="https://www.instagram.com/himasiamikom" target="_blank" class="text-blue-600 text-xl"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                <a href="https://www.instagram.com/himasiamikom" target="_blank"
+                                    class="text-blue-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24"
+                                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                                         <path
                                             d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z">
                                         </path>
