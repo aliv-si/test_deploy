@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HIMASI - Profil</title>
-    <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
-    <script src="/build/assets/app-DZflx3cY.js" defer></script>
+    {{-- <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
+    <script src="/build/assets/app-DZflx3cY.js" defer></script> --}}
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
@@ -137,7 +139,7 @@
                 <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
 
                 <div class="flex justify-center mt-8">
-                    <img src="img/profil-himasi.png" alt="Struktur Organisasi"
+                    <img src="img/struktur-organisasi.png" alt="Struktur Organisasi"
                         class="w-full max-w-4xl shadow-lg rounded-lg">
                 </div>
             </div>
