@@ -1,325 +1,408 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIMASI - Sistem Informasi Amikom</title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
-    <link rel="icon" type="image/png" href="img/favicon.ico">
-</head>
+@section('title', 'HIMASI')
 
-<body class="bg-white">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md relative">
-        <div class="max-w-7xl mx-auto px-6 md:px-10">
-            <div class="flex justify-between items-center py-4">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
-                    <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
+@section('content')
+    {{-- Header --}}
+    <header class="relative min-h-screen flex items-center -mt-16 pt-16">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25" draggable="false">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-10 w-full">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between">
+                <div class="relative md:w-1/2 text-center md:text-left">
+                    <h1 class="text-3xl md:text-5xl font-semibold text-primary-300 font-poppins">
+                        Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
+                    </h1>
+                    <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div>
+                    <p class="text-primary-300 mt-3 text-2xl font-medium font-grotesk italic">
+                        Adaptif, Inovatif, Kreatif
+                    </p>
                 </div>
 
-                <!-- Navigation Links (Desktop) -->
-                <ul class="hidden md:flex space-x-6 text-primary-300">
-                    <li><a href="/" class="relative hover:text-primary-600 font-poppins font-medium group">Home
-                            <span
-                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-                    </li>
-                    <li><a href="/profil" class="relative hover:text-primary-600 font-poppins font-medium group">Profil
-                            <span
-                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-                    </li>
-                    <li><a href="/department"
-                            class="relative hover:text-primary-600 font-poppins font-medium group">Departemen
-                            <span
-                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-                    </li>
-                    <li><a href="/berita" class="relative hover:text-primary-600 font-poppins font-medium group">Berita
-                            <span
-                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-                    </li>
-                    <li><a href="/banksoal" class="relative hover:text-primary-600 font-poppins font-medium group">Bank
-                            Soal
-                            <span
-                                class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
-                    </li>
-                </ul>
+                <div class="relative md:w-1/2 flex justify-center mb-8 md:mb-0">
+                    <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96" draggable="false">
+                </div>
+            </div>
+        </div>
+    </header>
+    {{-- End Header --}}
 
-                <!-- Hamburger Button (Mobile) -->
-                <button id="menu-toggle" class="md:hidden focus:outline-none cursor-pointer">
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+    {{-- About Us --}}
+    <section id="about-section" class="relative py-16 px-6 md:px-20 select-none">
+        <div class="flex flex-col items-center text-center relative z-10 pb-6">
+            <h2 class="text-3xl font-poppins text-primary-300 font-semibold">About Us</h2>
+            <div class="w-24 h-1 bg-black mt-3"></div>
+            <p class="text-primary-300 mt-3 text-lg font-base font-poppins max-w-3xl">
+                Himpunan Mahasiswa Program Studi Sistem Informasi atau disingkat dengan HIMASI didirikan pada tanggal 22
+                Oktober 2022. Sebuah organisasi untuk mewadahi, mewakili aspirasi, dan mengembangkan minat dan bakat para
+                mahasiswa yang mengambil Program Studi Sistem Informasi di Universitas Amikom Yogyakarta.
+            </p>
+        </div>
+    </section>
+    {{-- End About Us --}}
+
+    {{-- Prodi Sistem Informasi --}}
+    <section class="py-16 px-6 md:px-20 bg-gray-50 select-none">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <!-- Kiri: Logo/Gambar -->
+            <div class="md:w-1/2 flex justify-center">
+                <img src="img/logo-si.png" alt="Sistem Informasi Amikom" class="w-48 md:w-72" draggable="false">
+            </div>
+            <!-- Kanan: Info Prodi -->
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Program Studi Sistem Informasi</h2>
+                <div class="w-24 h-1 bg-primary-200 mt-3"></div>
+                <p class="text-primary-300 mt-4 text-base font-poppins leading-relaxed">
+                    Program Studi Sistem Informasi Universitas Amikom Yogyakarta mencetak lulusan yang kompeten di bidang
+                    teknologi informasi, analisis bisnis, dan pengembangan sistem. Dengan kurikulum berbasis industri dan
+                    didukung dosen berpengalaman, prodi ini siap membawa mahasiswa menjadi profesional IT yang adaptif dan
+                    inovatif.
+                </p>
+                <a href="https://si.amikom.ac.id/sambutan-kaprodi/" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 mt-6 bg-primary-600 hover:bg-primary-700 text-white font-poppins font-semibold px-6 py-3 rounded-lg shadow-md transition-colors">
+                    Kunjungi Website Prodi
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    {{-- End Prodi Sistem Informasi --}}
+
+    {{-- Organisasi Kami --}}
+    <section class="p-6 md:p-20 select-none">
+        <!-- Header: Title left, Description right -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-10">
+            <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Kenali Tim <br> HIMASI Kami</h2>
+            <p class="text-gray-500 text-sm font-poppins max-w-sm">
+                Pengurus HIMASI yang berkomitmen untuk mewadahi, menyalurkan aspirasi, dan mengembangkan potensi mahasiswa
+                Sistem Informasi.
+            </p>
+        </div>
+
+        <!-- Team Slider -->
+        <div id="team-slider" class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
+            @foreach ($members->take(4) as $member)
+                <div
+                    class="group relative bg-gray-200 rounded-2xl overflow-hidden aspect-[3/4] flex-shrink-0 w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] snap-start">
+                    <!-- Photo -->
+                    @if ($member->photo)
+                        <img src="{{ asset('storage/' . $member->photo) }}" alt="{{ $member->name }}"
+                            class="w-full h-full object-cover" draggable="false">
+                    @else
+                        <div class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                                stroke="currentColor" class="w-32 h-32">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                        </div>
+                    @endif
+
+                    <!-- Info Overlay at Bottom -->
+                    <div
+                        class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-semibold font-poppins text-primary-300">{{ $member->name }}</h3>
+                            <p class="text-xs text-gray-500 font-poppins">{{ $member->position }}</p>
+                        </div>
+                        @if ($member->instagram)
+                            <a href="https://instagram.com/{{ ltrim($member->instagram, '@') }}" target="_blank"
+                                rel="noopener noreferrer" class="text-primary-300 hover:text-primary-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z" />
+                                    <circle cx="16.806" cy="7.207" r="1.078" />
+                                    <path
+                                        d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z" />
+                                </svg>
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+
+            <!-- CTA Card: Lihat Semua Anggota (hidden, revealed on scroll) -->
+            <a href="/profil"
+                class="rounded-2xl border-2 border-dashed border-gray-300 aspect-[3/4] flex-shrink-0 w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] snap-start flex flex-col items-center justify-center gap-3 hover:border-primary-600 hover:bg-primary-600/5 transition-all duration-300 group">
+                <div
+                    class="w-14 h-14 rounded-full bg-gray-100 group-hover:bg-primary-600/10 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-7 text-gray-400 group-hover:text-primary-600 transition-colors">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+                <span
+                    class="text-sm font-semibold font-poppins text-gray-400 group-hover:text-primary-600 transition-colors">
+                    Lihat Semua
+                </span>
+            </a>
+        </div>
+    </section>
+    {{-- End Organisasi Kami --}}
+
+    {{-- Quote Section --}}
+    <section class="min-h-[75vh] flex items-center justify-center px-6 md:p-20 select-none">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-4xl md:text-7xl font-serif text-primary-200 leading-none select-none">"</span>
+            <blockquote class="text-lg md:text-3xl font-poppins text-primary-300 font-medium italic leading-relaxed -mt-6">
+                Leadership is not about being in charge.<br> It is about taking care of those in your charge.
+            </blockquote>
+            <div class="w-14 h-1 bg-primary-200 mx-auto mt-6 rounded-full"></div>
+            <p class="text-gray-500 font-poppins mt-4 text-lg">— Simon Sinek</p>
+        </div>
+    </section>
+    {{-- End Quote Section --}}
+
+    {{-- Aspiration --}}
+    <!-- <section id="aspirasi-section" class="relative py-16 px-6 md:px-20">
+                             <div     cla   ss="flex flex-col items-center text-center relative z-10 pb-6">
+                                     <h2  clas  s="text-3xl font-semibold font-poppins text-primary-300">Ruang Aspirasi</h2>
+                                     <div   cla ss="w-24 h-1 bg-black mt-2"></div>
+                               </di   v>
+
+                                <div  cla   ss="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('img/aspiration.png');">
+                                </di  v>
+
+                                <div    cla ss="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('img/aspiration.png');">
+                                    </div>
+
+                            <div     cla    ss="relative max-w-5xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+
+                                    <div   cla  ss="flex flex-col md:flex-row gap-8 mt-6">
+                                           <div cla ss="md:w-1/2">
+                                            <p c    lass="text-primary-300 font-poppins text-lg leading-relaxed">
+                                              HIMA  SI s    ebagai wadah aspirasi Mahasiswa Program Studi Sistem Informasi.
+                                               Berb  agai    keluhan, ide, masukan, dan kritik terkait dengan akademik yang membangun terhadap
+                                                kema   juan  Program Studi Sistem Informasi akan disalurkan ke Ketua Program Studi Sistem
+                                                   Info rmasi yang
+                                              tent  u sa    ja kami senantiasa menjaga privasi dan kredibilitas aspirator.
+                                          </p>
+                                         </di v>
+
+                                           <div  class="md:w-1/2 bg-gray-50 p-6 rounded-xl shadow-md relative border border-gray-300">
+                                          <for  m me    thod="POST" action="{{ route('aspiration.store') }}" id="aspiration-form"
+                                                 enctype=   "multipart/form-data">
+                                              @csr    f
+                                                 <lab  el f or="email_student" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                                      Email <s  pan class="text-red-500">*</span>
+                                             </la    bel>
+                                                 <inp ut t  ype="email" name="email_student" id="email_student"
+                                                     clas  s="w -full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                                     plac   eholder="example@students.amikom.ac.id" pattern=".*@students\.amikom\.ac\.id$" required>
+                                               <lab el f    or="class" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                                    Kela  s <s  pan class="text-red-500">*</span>
+                                                </la   bel>
+                                                    <input type="text" name="class" id="class"
+                                                clas    s="w    -full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                                   plac  ehol   der="Masukkan Kelas" required>
+
+                                                   <label f or="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                                    Aspi    rasimu <span class="text-red-500">*</span>
+                                              </la  bel>
+                                               <tex  tare   a name="aspiration" id="aspiration" rows="4"
+                                                   clas   s="w  -full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                                       plac eholder="Sampaikan Aspirasimu!" required></textarea>
+
+                                              <but  ton     type="submit"
+                                                  clas   s="b   g-primary-600 hover:bg-primary-700 cursor-pointer text-white font-poppins font-semibold px-6 py-2 rounded-lg shadow-md w-28 mx-auto block">
+                                                     Kiri m
+                                                  </bu tton >
+                                            </fo  rm>
+                                         </div>
+                                  </di    v>
+                                 </di  v>
+                                </section> -->
+    {{-- End Aspiration --}}
+
+    {{-- Berita Acara --}}
+    <section class="bg-white p-6 md:p-20 select-none">
+        <div class="flex items-center justify-between pb-8">
+            <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Berita Acara</h2>
+            <!-- Navigation Arrows -->
+            <div class="flex gap-2">
+                <button id="news-prev"
+                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                     </svg>
                 </button>
-
+                <button id="news-next"
+                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="absolute top-full left-0 w-full bg-white shadow-lg hidden md:hidden z-50 transition-all ease-in-out duration-300">
-            <div class="max-w-7xl mx-auto px-6 md:px-10">
-                <ul class="flex flex-col space-y-3 py-4 text-primary-300">
-                    <li><a href="/" class="block font-poppins font-medium pb-2">Home</a></li>
-                    <li><a href="/profil" class="block font-poppins font-medium pb-2">Profil</a></li>
-                    <li><a href="/department" class="block font-poppins font-medium pb-2">Departemen</a></li>
-                    <li><a href="/berita" class="block font-poppins font-medium pb-2">Berita</a></li>
-                    <li><a href="/banksoal" class="block font-poppins font-medium pb-2">Bank Soal</a></li>
-                </ul>
-            </div>
+
+        <div id="news-slider"
+            class="flex gap-4 pb-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory scrollbar-hide">
+            @foreach ($newsList as $news)
+                <a href="{{ route('news.show', ['slug' => $news->slug]) }}"
+                    class="group block flex-shrink-0 w-[calc(100%-16px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-12px)] snap-start">
+                    <!-- Thumbnail -->
+                    <div class="w-full aspect-video overflow-hidden rounded-xl">
+                        <img src="{{ asset('storage/' . $news->image_news) }}" alt="{{ $news->news_headline }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            draggable="false">
+                    </div>
+                    <!-- Info -->
+                    <h3
+                        class="text-sm font-semibold font-poppins text-primary-300 line-clamp-2 mt-3 group-hover:text-primary-600 transition-colors">
+                        {{ $news->news_headline }}
+                    </h3>
+                    <p class="text-xs text-gray-500 font-poppins mt-1 line-clamp-2">
+                        {{ Str::limit($news->news_content, 80) }}
+                    </p>
+                    <p class="text-xs text-gray-400 font-poppins mt-1">
+                        {{ $news->date->format('d M Y') }}
+                    </p>
+                </a>
+            @endforeach
         </div>
-    </nav>
+    </section>
+    {{-- End Berita Acara --}}
 
-    <!-- Main Content -->
-    <main>
-        {{-- Header --}}
-        <header class="relative py-16">
-            <!-- Background Image with Overlay -->
-            <div class="absolute inset-0">
-                <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25">
-            </div>
+@endsection
 
-            <div class="max-w-7xl mx-auto px-6 md:px-10">
-                <div class="flex flex-col-reverse md:flex-row items-center justify-between">
-                    <div class="relative md:w-1/2 text-center md:text-left">
-                        <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
-                            Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
-                        </h1>
-                        <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div>
-                        <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">
-                            Adaptif, Inovatif, Kreatif
-                        </p>
-                    </div>
+@push('scripts')
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
 
-                    <div class="relative md:w-1/2 flex justify-center mb-8 md:mb-0">
-                        <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
-                    </div>
-                </div>
-            </div>
-        </header>
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('news-slider');
+            const prevBtn = document.getElementById('news-prev');
+            const nextBtn = document.getElementById('news-next');
 
-        {{-- End Header --}}
+            if (!slider || !prevBtn || !nextBtn) return;
 
-        <!-- Berita Acara -->
-        <section class="bg-white py-16 px-6 md:px-20">
-            <div class="flex flex-col items-center pb-4">
-                <h2 class="text-3xl font-poppins text-primary-300 font-bold">Berita Acara</h2>
-                <div class="w-24 h-1.5 bg-black mt-1"></div>
-            </div>
+            function getScrollAmount() {
+                const item = slider.querySelector('a');
+                if (!item) return 300;
+                return item.offsetWidth + 16; // item width + gap
+            }
 
-            <div class="max-w-5xl mx-auto bg-gray-200 p-6 rounded-2xl shadow-lg">
-                <div class="relative">
-                    @foreach ($newsList as $index => $news)
-                        @if ($index < 2)
-                            <div class="slide {{ $index == 0 ? '' : 'hidden' }}">
-                                <div class="flex flex-col md:flex-row gap-6">
-                                    <div class="flex-1">
-                                        <h2
-                                            class="text-lg font-poppins font-bold text-primary-300 border-b-4 border-primary-200 w-fit pb-1 mb-2">
-                                            {{ strtoupper($news->category) }}
-                                        </h2>
-                                        <h1 class="text-2xl font-bold text-primary-300 font-poppins">
-                                            {{ $news->news_headline }}</h1>
-                                        <p class="text-primary-300 font-poppins font-light mt-4 leading-relaxed">
-                                            {{ $news->news_content }}
-                                        </p>
-                                    </div>
-                                    <div class="flex-1 flex justify-center">
-                                        <a href="{{ route('news.show', ['slug' => $news->slug]) }}">
-                                            <img src="{{ asset('storage/' . $news->image_news) }}"
-                                                alt="{{ $news->news_headline }}"
-                                                class="w-full max-w-sm h-64 object-cover rounded-lg shadow-md" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
+            function updateButtons() {
+                prevBtn.disabled = slider.scrollLeft <= 0;
+                nextBtn.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1;
+            }
 
-            <div class="mt-6 flex justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="prev-button cursor-pointer size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                </svg>
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({
+                    left: -getScrollAmount() * 4,
+                    behavior: 'smooth'
+                });
+            });
 
-                @foreach ($newsList as $index => $news)
-                    @if ($index < 2)
-                        <button
-                            class="slider-button cursor-pointer px-3 py-1 rounded-lg 
-                                {{ $index == 0 ? 'bg-yellow-500 text-white' : 'bg-gray-300 text-gray-700' }} font-bold"
-                            onclick="showSlide({{ $index }})">
-                            {{ $index + 1 }}
-                        </button>
-                    @endif
-                @endforeach
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({
+                    left: getScrollAmount() * 4,
+                    behavior: 'smooth'
+                });
+            });
 
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="next-button cursor-pointer size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
+            slider.addEventListener('scroll', updateButtons);
+            updateButtons();
 
-        </section>
-        {{-- End Berita Acara --}}
+            // Mouse drag for news slider
+            enableMouseDrag(slider);
 
-        {{-- Aspiration --}}
-        <section class="relative py-16 px-6 md:px-20">
-            <!-- Bagian Header (Judul) -->
-            <div class="flex flex-col items-center text-center relative z-10 pb-6">
-                <h2 class="text-3xl font-bold font-poppins text-primary-300">Aspirasi</h2>
-                <div class="w-24 h-1.5 bg-black mt-2"></div>
-            </div>
+            // Mouse drag for team slider
+            const teamSlider = document.getElementById('team-slider');
+            if (teamSlider) enableMouseDrag(teamSlider);
 
-            <!-- Background Overlay -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-50"
-                style="background-image: url('img/aspiration.png');">
-            </div>
+            function enableMouseDrag(el) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+                let hasDragged = false;
 
-            <!-- Container dengan Overlay -->
-            <div class="relative max-w-5xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+                el.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    hasDragged = false;
+                    el.style.scrollSnapType = 'none';
+                    startX = e.pageX - el.offsetLeft;
+                    scrollLeft = el.scrollLeft;
+                    e.preventDefault();
+                });
 
-                <div class="flex flex-col md:flex-row gap-8 mt-6">
-                    <!-- Bagian Kiri: Deskripsi -->
-                    <div class="md:w-1/2">
-                        <p class="text-primary-300 font-poppins text-lg leading-relaxed">
-                            HIMASI sebagai wadah aspirasi Mahasiswa Program Studi Sistem Informasi.
-                            Berbagai keluhan, ide, masukan, dan kritik terkait dengan akademik yang membangun terhadap
-                            kemajuan Program Studi Sistem Informasi akan disalurkan ke Ketua Program Studi Sistem
-                            Informasi yang
-                            tentu saja kami senantiasa menjaga privasi dan kredibilitas aspirator.
-                        </p>
-                    </div>
+                el.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    el.style.scrollSnapType = '';
+                });
 
-                    <!-- Bagian Kanan: Formulir -->
-                    <div class="md:w-1/2 bg-gray-50 p-6 rounded-xl shadow-md relative border border-gray-300">
-                        <form method="POST" action="{{ route('aspiration.store') }}" id="aspiration-form"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <label for="email_student" class="block text-primary-300 font-poppins font-semibold mb-1">
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input type="email" name="email_student" id="email_student"
-                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                placeholder="example@students.amikom.ac.id" pattern=".*@students\.amikom\.ac\.id$"
-                                required>
-                            <label for="class" class="block text-primary-300 font-poppins font-semibold mb-1">
-                                Kelas <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" name="class" id="class"
-                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                placeholder="Masukkan Kelas" required>
+                el.addEventListener('mouseup', () => {
+                    isDown = false;
+                    el.style.scrollSnapType = '';
+                });
 
-                            <label for="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
-                                Aspirasimu <span class="text-red-500">*</span>
-                            </label>
-                            <textarea name="aspiration" id="aspiration" rows="4"
-                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                placeholder="Sampaikan Aspirasimu!" required></textarea>
+                el.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - el.offsetLeft;
+                    const walk = (x - startX) * 1.5;
+                    if (Math.abs(walk) > 5) hasDragged = true;
+                    el.scrollLeft = scrollLeft - walk;
+                });
 
-                            <button type="submit"
-                                class="bg-primary-600 hover:bg-primary-700 cursor-pointer text-white font-poppins font-semibold px-6 py-2 rounded-lg shadow-md w-28 mx-auto block">
-                                Kirim
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{-- End Aspiration --}}
+                // Prevent link navigation when dragging
+                el.addEventListener('click', (e) => {
+                    if (hasDragged) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        hasDragged = false;
+                    }
+                }, true);
+            }
+        });
+    </script>
+    <script>
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 1500;
+                    const start = performance.now();
 
-        {{-- Footer --}}
-        <footer class="bg-white py-8">
-            <div class="max-w-7xl mx-auto px-6 md:px-10">
-                <!-- Card Footer -->
-                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-
-                    <!-- Header Footer: Logo -->
-                    <div class="flex items-center gap-x-3 pb-6">
-                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
-                        <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-10">
-                    </div>
-
-                    <!-- Grid 3 Kolom -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                        <!-- Kolom 1: Universitas & Navigasi -->
-                        <div>
-                            <h3 class="font-medium font-poppins text-lg">Universitas Amikom Yogyakarta</h3>
-                            <p class="text-primary-300 font-poppins">Sistem Informasi</p>
-                            <p class="text-primary-300 font-poppins">
-                                Instagram Prodi :
-                                <a href="https://www.instagram.com/si.amikom" class="text-blue-600">@si.amikom</a>
-                            </p>
-                            <h3 class="font-meidum font-poppins text-lg mt-4">Navigation</h3>
-                            <ul class="text-gray-700 space-y-1 font-medium font-poppins">
-                                <li><a href="/" class="hover:text-primary-600">&gt; Home</a></li>
-                                <li><a href="/profil" class="hover:text-primary-600">&gt; Profil</a></li>
-                                <li><a href="/department" class="hover:text-primary-600">&gt; Departemen</a></li>
-                                <li><a href="/berita" class="hover:text-primary-600">&gt; Berita</a></li>
-                                <li><a href="/banksoal" class="hover:text-primary-600">&gt; Bank Soal</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Kolom 2: Address & Social Media -->
-                        <div>
-                            <h3 class="font-medium font-poppins text-lg">Address</h3>
-                            <p class="text-primray-300 font-poppins">
-                                Jl. Ring Road Utara, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman,<br>
-                                Daerah Istimewa Yogyakarta 55281
-                            </p>
-                            <h3 class="text-lg font-medium font-poppins mt-4">Social Media</h3>
-                            <div class="flex space-x-4 mt-2">
-                                <a href="https://www.instagram.com/himasiamikom" target="_blank"
-                                    class="text-blue-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24"
-                                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                                        <path
-                                            d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z">
-                                        </path>
-                                        <circle cx="16.806" cy="7.207" r="1.078"></circle>
-                                        <path
-                                            d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z">
-                                        </path>
-                                    </svg></a>
-                                <a href="https://www.tiktok.com/@himasiamikom?_t=ZS-8wAvgiWLYB8&_r=1" target="_blank"
-                                    class="text-blue-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24"
-                                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                                        <path
-                                            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z">
-                                        </path>
-                                    </svg></a>
-                            </div>
-                        </div>
-
-                        <!-- Kolom 3: Google Maps -->
-                        <div>
-                            <iframe class="w-full h-48 md:h-full rounded-lg "
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.281831557606!2d110.40688116996652!3d-7.759905827479537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a599bd3bdc4ef%3A0x6f1714b0c4544586!2sUniversitas%20Amikom%20Yogyakarta!5e0!3m2!1sid!2sid!4v1739096462499!5m2!1sid!2sid"
-                                allowfullscreen="" loading="lazy">
-                            </iframe>
-                        </div>
-                    </div>
-
-                    <!-- Garis & Copyright (Sekarang di dalam Card) -->
-                    <div class="border-t border-black mt-6 pt-4 text-center">
-                        <p class="text-primary-300 font-medium font-poppins">
-                            &copy; HIMASI <span class="font-bold">2025</span>. All Rights Reserved
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-        {{-- End Footer --}}
-    </main>
-    {{-- End Main Content --}}
-
-</body>
-
-</html>
-
+                    function update(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        counter.textContent = Math.floor(target * eased);
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+                    requestAnimationFrame(update);
+                    observer.unobserve(counter);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        counters.forEach(c => observer.observe(c));
+    </script>
+@endpush

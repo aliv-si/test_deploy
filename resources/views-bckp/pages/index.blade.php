@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HIMASI - Department</title>
-    <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
+    <title>HIMASI - Sistem Informasi Amikom</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <script src="/build/assets/app-DZflx3cY.js" defer></script>
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
-<body>
+<body class="bg-white">
     <!-- Navbar -->
     <nav class="bg-white shadow-md relative">
         <div class="max-w-7xl mx-auto px-6 md:px-10">
@@ -74,44 +71,165 @@
             </div>
         </div>
     </nav>
-    {{-- End Navbar --}}
 
-    {{-- Main Content --}}
+    <!-- Main Content -->
     <main>
-        {{-- Profil Department --}}
-        <section class="text-center py-12">
-            <h2 class="text-2xl md:text-3xl font-bold font-poppins text-primary-300">PENGURUS HARIAN</h2>
-            <h3 class="text-xl md:text-2xl font-semibold font-poppins text-primary-300">DAN</h3>
-            <h2 class="text-2xl md:text-3xl font-bold font-poppins text-primary-300">DEPARTEMEN</h2>
+        {{-- Header --}}
+        <header class="relative py-16">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0">
+                <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25">
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 px-6 md:px-20">
-                @foreach ($departments as $department)
-                    <div
-                        class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center hover:transform hover:scale-105 transition-all duration-300">
-                        <!-- Gunakan icon dari database jika ada -->
-                        @if ($department->icon)
-                            <img src="{{ asset('storage/' . $department->icon) }}"
-                                alt="{{ $department->name_department }}" class="h-24 mt-4">
-                        @else
-                            <!-- Fallback image jika icon tidak tersedia -->
-                            <img src="{{ asset('img/teamwork.png') }}" alt="{{ $department->name_department }}"
-                                class="h-24 mt-4">
-                        @endif
-
-                        <p class="mt-4 font-medium text-lg font-poppins text-center">
-                            {{ $department->name_department }}
+            <div class="max-w-7xl mx-auto px-6 md:px-10">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-between">
+                    <div class="relative md:w-1/2 text-center md:text-left">
+                        <h1 class="text-3xl md:text-5xl font-bold text-primary-300 font-poppins">
+                            Himpunan Mahasiswa<br>Program Studi<br>Sistem Informasi
+                        </h1>
+                        <div class="h-1.5 bg-primary-200 mt-2 mx-auto md:ml-0 w-24 md:w-[400px]"></div>
+                        <p class="text-primary-300 mt-3 text-xl font-medium font-playfair">
+                            Adaptif, Inovatif, Kreatif
                         </p>
-
-                        <a href="{{ route('department.detail', $department->id_department) }}"
-                            class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-6 py-2 rounded-full text-sm shadow-md font-poppins transition-colors duration-200">
-                            Selengkapnya
-                        </a>
                     </div>
+
+                    <div class="relative md:w-1/2 flex justify-center mb-8 md:mb-0">
+                        <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        {{-- End Header --}}
+
+        <!-- Berita Acara -->
+        <section class="bg-white py-16 px-6 md:px-20">
+            <div class="flex flex-col items-center pb-4">
+                <h2 class="text-3xl font-poppins text-primary-300 font-bold">Berita Acara</h2>
+                <div class="w-24 h-1.5 bg-black mt-1"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto bg-gray-200 p-6 rounded-2xl shadow-lg">
+                <div class="relative">
+                    @foreach ($newsList as $index => $news)
+                        @if ($index < 2)
+                            <div class="slide {{ $index == 0 ? '' : 'hidden' }}">
+                                <div class="flex flex-col md:flex-row gap-6">
+                                    <div class="flex-1">
+                                        <h2
+                                            class="text-lg font-poppins font-bold text-primary-300 border-b-4 border-primary-200 w-fit pb-1 mb-2">
+                                            {{ strtoupper($news->category) }}
+                                        </h2>
+                                        <h1 class="text-2xl font-bold text-primary-300 font-poppins">
+                                            {{ $news->news_headline }}</h1>
+                                        <p class="text-primary-300 font-poppins font-light mt-4 leading-relaxed">
+                                            {{ $news->news_content }}
+                                        </p>
+                                    </div>
+                                    <div class="flex-1 flex justify-center">
+                                        <a href="{{ route('news.show', ['slug' => $news->slug]) }}">
+                                            <img src="{{ asset('storage/' . $news->image_news) }}"
+                                                alt="{{ $news->news_headline }}"
+                                                class="w-full max-w-sm h-64 object-cover rounded-lg shadow-md" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-center items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="prev-button cursor-pointer size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+
+                @foreach ($newsList as $index => $news)
+                    @if ($index < 2)
+                        <button
+                            class="slider-button cursor-pointer px-3 py-1 rounded-lg 
+                                {{ $index == 0 ? 'bg-yellow-500 text-white' : 'bg-gray-300 text-gray-700' }} font-bold"
+                            onclick="showSlide({{ $index }})">
+                            {{ $index + 1 }}
+                        </button>
+                    @endif
                 @endforeach
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="next-button cursor-pointer size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </div>
+
+        </section>
+        {{-- End Berita Acara --}}
+
+        {{-- Aspiration --}}
+        <section id="aspirasi-section" class="relative py-16 px-6 md:px-20">
+            <!-- Bagian Header (Judul) -->
+            <div class="flex flex-col items-center text-center relative z-10 pb-6">
+                <h2 class="text-3xl font-bold font-poppins text-primary-300">Aspirasi</h2>
+                <div class="w-24 h-1.5 bg-black mt-2"></div>
+            </div>
+
+            <!-- Background Overlay -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-50"
+                style="background-image: url('img/aspiration.png');">
+            </div>
+
+            <!-- Container dengan Overlay -->
+            <div class="relative max-w-5xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+
+                <div class="flex flex-col md:flex-row gap-8 mt-6">
+                    <!-- Bagian Kiri: Deskripsi -->
+                    <div class="md:w-1/2">
+                        <p class="text-primary-300 font-poppins text-lg leading-relaxed">
+                            HIMASI sebagai wadah aspirasi Mahasiswa Program Studi Sistem Informasi.
+                            Berbagai keluhan, ide, masukan, dan kritik terkait dengan akademik yang membangun terhadap
+                            kemajuan Program Studi Sistem Informasi akan disalurkan ke Ketua Program Studi Sistem
+                            Informasi yang
+                            tentu saja kami senantiasa menjaga privasi dan kredibilitas aspirator.
+                        </p>
+                    </div>
+
+                    <!-- Bagian Kanan: Formulir -->
+                    <div class="md:w-1/2 bg-gray-50 p-6 rounded-xl shadow-md relative border border-gray-300">
+                        <form method="POST" action="{{ route('aspiration.store') }}" id="aspiration-form"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <label for="email_student" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                Email <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" name="email_student" id="email_student"
+                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                placeholder="example@students.amikom.ac.id" pattern=".*@students\.amikom\.ac\.id$"
+                                required>
+                            <label for="class" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                Kelas <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" name="class" id="class"
+                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                placeholder="Masukkan Kelas" required>
+
+                            <label for="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
+                                Aspirasimu <span class="text-red-500">*</span>
+                            </label>
+                            <textarea name="aspiration" id="aspiration" rows="4"
+                                class="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                                placeholder="Sampaikan Aspirasimu!" required></textarea>
+
+                            <button type="submit"
+                                class="bg-primary-600 hover:bg-primary-700 cursor-pointer text-white font-poppins font-semibold px-6 py-2 rounded-lg shadow-md w-28 mx-auto block">
+                                Kirim
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
-
-        {{-- End Profil Department --}}
+        {{-- End Aspiration --}}
 
         {{-- Footer --}}
         <footer class="bg-white py-8">
@@ -121,8 +239,8 @@
 
                     <!-- Header Footer: Logo -->
                     <div class="flex items-center gap-x-3 pb-6">
-                        <img src="img/logo-himasi.png" alt="Logo Himasi" class="h-10">
-                        <img src="img/logo-si.png" alt="Logo Sistem Informasi" class="h-10">
+                        <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-10">
+                        <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-10">
                     </div>
 
                     <!-- Grid 3 Kolom -->
@@ -200,6 +318,7 @@
         {{-- End Footer --}}
     </main>
     {{-- End Main Content --}}
+
 </body>
 
 </html>

@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HIMASI - Department</title>
-    <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
+    <title>HIMASI - Profil</title>
+    {{-- <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
+    <script src="/build/assets/app-DZflx3cY.js" defer></script> --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <script src="/build/assets/app-DZflx3cY.js" defer></script>
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
-<body>
+<body class="bg-white">
     <!-- Navbar -->
     <nav class="bg-white shadow-md relative">
         <div class="max-w-7xl mx-auto px-6 md:px-10">
@@ -76,42 +76,75 @@
     </nav>
     {{-- End Navbar --}}
 
-    {{-- Main Content --}}
+    {{-- Main content --}}
     <main>
-        {{-- Profil Department --}}
-        <section class="text-center py-12">
-            <h2 class="text-2xl md:text-3xl font-bold font-poppins text-primary-300">PENGURUS HARIAN</h2>
-            <h3 class="text-xl md:text-2xl font-semibold font-poppins text-primary-300">DAN</h3>
-            <h2 class="text-2xl md:text-3xl font-bold font-poppins text-primary-300">DEPARTEMEN</h2>
+        {{-- Header Logo & Text --}}
+        <header class="px-6 py-16 flex flex-col md:flex-row items-center justify-center gap-10">
+            <div class="flex-shrink-0">
+                <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96">
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 px-6 md:px-20">
-                @foreach ($departments as $department)
-                    <div
-                        class="relative bg-primary-100 p-6 rounded-xl shadow-lg flex flex-col items-center hover:transform hover:scale-105 transition-all duration-300">
-                        <!-- Gunakan icon dari database jika ada -->
-                        @if ($department->icon)
-                            <img src="{{ asset('storage/' . $department->icon) }}"
-                                alt="{{ $department->name_department }}" class="h-24 mt-4">
-                        @else
-                            <!-- Fallback image jika icon tidak tersedia -->
-                            <img src="{{ asset('img/teamwork.png') }}" alt="{{ $department->name_department }}"
-                                class="h-24 mt-4">
-                        @endif
+            <div class="max-w-2xl">
+                <h1 class="text-2xl font-semibold text-primary-300 font-poppins">Himpunan Mahasiswa Program Studi Sistem
+                    Informasi</h1>
+                <p class="mt-4 text-primary-300 font-poppins text-justify">
+                    <strong>HIMASI</strong> adalah Himpunan Mahasiswa Program Studi Sistem Informasi yang dibentuk
+                    dengan tujuan untuk menyalurkan aspirasi mahasiswa Program Studi Sistem Informasi di
+                    <strong>UNIVERSITAS AMIKOM Yogyakarta</strong>. HIMASI berkedudukan di kampus <strong>UNIVERSITAS
+                        AMIKOM Yogyakarta</strong>, dan akan tetap berdiri selama masih ada mahasiswa Program Studi
+                    Sistem Informasi.
+                </p>
+            </div>
+        </header>
+        {{-- End Header Logo & Text --}}
 
-                        <p class="mt-4 font-medium text-lg font-poppins text-center">
-                            {{ $department->name_department }}
-                        </p>
+        {{-- Visi & MISI --}}
+        <section class="px-6 py-12 bg-white">
+            <div class="text-center pb-6">
+                <h2 class="text-3xl font-bold text-primary-300 font-poppins">Visi dan Misi</h2>
+                <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
+            </div>
 
-                        <a href="{{ route('department.detail', $department->id_department) }}"
-                            class="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 bg-primary-500 hover:bg-primary-800 text-white px-6 py-2 rounded-full text-sm shadow-md font-poppins transition-colors duration-200">
-                            Selengkapnya
-                        </a>
-                    </div>
-                @endforeach
+            <div class="max-w-5xl mx-auto bg-gray-100 p-10 shadow-lg rounded-lg">
+
+                <div class="bg-white p-8 mt-8 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">VISI</h3>
+                    <div class="w-12 h-1 bg-yellow-500 mt-1"></div>
+                    <p class="mt-2 text-primary-300 font-poppins">Menjadikan himpunan mahasiswa sistem informasi sebagai
+                        wadah pemersatu, penampung, aspirasi dan penyalur bakat mahasiswa. Prodi sistem informasi
+                        sehingga terwujud himpunan yang solid dan bersinergi.</p>
+                </div>
+
+                <div class="bg-white p-8 mt-6 shadow-md rounded-lg">
+                    <h3 class="text-2xl font-bold text-primary-300 font-poppins">MISI</h3>
+                    <div class="w-12 h-1 bg-yellow-500 mt-1"></div>
+                    <ul class="mt-2 text-primary-300 list-decimal list-inside space-y-2 font-poppins">
+                        <li>Menjadi wadah kegiatan, penyalur aspirasi, minat, bakat dan tempat tukar pikiran dengan asas
+                            kekeluargaan.</li>
+                        <li>Mengembangkan dan menyalurkan potensi dari setiap mahasiswa untuk maju dan berkembang.</li>
+                        <li>Menjalin hubungan yang baik dengan civitas, alumni, serta organisasi atau lembaga lainnya
+                            khususnya di lingkungan Universitas Amikom Yogyakarta.</li>
+                        <li>Menyelenggarakan dan melanjutkan kegiatan yang dapat mendukung tercapainya mahasiswa yang
+                            aktif, memiliki solidaritas, berwawasan dan keterampilan yang kompeten.</li>
+                    </ul>
+                </div>
             </div>
         </section>
+        {{-- End Visi & MISI --}}
 
-        {{-- End Profil Department --}}
+        {{-- Structur Organitation --}}
+        <section class="bg-white py-12">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-primary-300 font-poppins">Struktur Organisasi</h2>
+                <div class="w-24 h-1.5 bg-black mx-auto mt-2"></div>
+
+                <div class="flex justify-center mt-8">
+                    <img src="img/struktur-organisasi.png" alt="Struktur Organisasi"
+                        class="w-full max-w-4xl shadow-lg rounded-lg">
+                </div>
+            </div>
+        </section>
+        {{-- End Structur Organitation --}}
 
         {{-- Footer --}}
         <footer class="bg-white py-8">
@@ -199,7 +232,7 @@
         </footer>
         {{-- End Footer --}}
     </main>
-    {{-- End Main Content --}}
+    {{-- End Main content --}}
 </body>
 
 </html>

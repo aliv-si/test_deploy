@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIMASI - Bank Soal</title>
-    <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
-    <script src="/build/assets/app-DZflx3cY.js" defer></script>
+    {{-- <link rel="stylesheet" href="/build/assets/app-DYVVYb7y.css">
+    <script src="/build/assets/app-DZflx3cY.js" defer></script> --}}
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 
