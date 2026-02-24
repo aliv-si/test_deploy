@@ -37,7 +37,7 @@ Route::get('/banksoal', function () {
 Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/aspiration/store', [AspirationController::class, 'store'])->name('aspiration.store');
-// Route::get('/aspirations', [AspirationController::class, 'index'])->name('aspiration.index');
+Route::get('/aspirasi', [AspirationController::class, 'index'])->name('aspirasi');
 
 
 Route::get('/department', [DepartmentController::class, 'index'])->name('department');

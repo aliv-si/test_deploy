@@ -13,5 +13,5 @@ class Aspiration extends Model
     protected $table = 'aspirations';
     protected $primaryKey = 'id_aspiration';
 
-    protected $fillable = ['email_student', 'class', 'aspiration', 'date'];
+    protected $fillable = ['email_student', 'class', 'aspiration', 'is_anonymous', 'date'];
 }

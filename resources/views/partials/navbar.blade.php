@@ -1,6 +1,6 @@
 <header
-    class="sticky top-0 z-50 w-full border-[#f1f2f4] dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 select-none">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 backdrop-blur-md">
+    class="sticky top-0 z-1 w-full border-[#f1f2f4] dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md select-none">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center space-x-3">
@@ -34,7 +34,7 @@
             </ul>
             <!-- CTA -->
             <div class="flex items-center gap-4">
-                <a href="#aspirasi-section"
+                <a href="{{ route('aspirasi') }}"
                     class="group relative hidden md:flex h-10 w-10 items-center justify-center rounded-lg bg-primary-200 text-primary-300 shadow-sm hover:bg-primary-600 hover:text-white transition-all duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -72,3 +72,4 @@
         </div>
     </div>
 </header>
+

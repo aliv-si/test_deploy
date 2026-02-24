@@ -31,7 +31,7 @@
     {{-- End Header --}}
 
     {{-- About Us --}}
-    <section id="about-section" class="relative py-16 px-6 md:px-20 select-none">
+    <section id="about-section" class="relative pt-10 pb-20 px-6 md:px-20 mb-10 select-none">
         <div class="flex flex-col items-center text-center relative z-10 pb-6">
             <h2 class="text-3xl font-poppins text-primary-300 font-semibold">About Us</h2>
             <div class="w-24 h-1 bg-black mt-3"></div>
@@ -76,7 +76,7 @@
     {{-- End Prodi Sistem Informasi --}}
 
     {{-- Organisasi Kami --}}
-    <section class="p-6 md:p-20 select-none">
+    <section class="px-6 md:px-20 pt-20 select-none">
         <!-- Header: Title left, Description right -->
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-10">
             <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Kenali Tim <br> HIMASI Kami</h2>
@@ -149,81 +149,61 @@
     {{-- End Organisasi Kami --}}
 
     {{-- Quote Section --}}
-    <section class="min-h-[75vh] flex items-center justify-center px-6 md:p-20 select-none">
+    <section class="min-h-[60vh] flex items-center justify-center px-6 md:px-20 mb-10 select-none">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-4xl md:text-7xl font-serif text-primary-200 leading-none select-none">"</span>
             <blockquote class="text-lg md:text-3xl font-poppins text-primary-300 font-medium italic leading-relaxed -mt-6">
                 Leadership is not about being in charge.<br> It is about taking care of those in your charge.
             </blockquote>
             <div class="w-14 h-1 bg-primary-200 mx-auto mt-6 rounded-full"></div>
-            <p class="text-gray-500 font-poppins mt-4 text-lg">— Simon Sinek</p>
+            <p class="opacity-50 font-poppins mt-4 text-lg">— Simon Sinek</p>
         </div>
     </section>
     {{-- End Quote Section --}}
 
-    {{-- Aspiration --}}
-    <!-- <section id="aspirasi-section" class="relative py-16 px-6 md:px-20">
-                             <div     cla   ss="flex flex-col items-center text-center relative z-10 pb-6">
-                                     <h2  clas  s="text-3xl font-semibold font-poppins text-primary-300">Ruang Aspirasi</h2>
-                                     <div   cla ss="w-24 h-1 bg-black mt-2"></div>
-                               </di   v>
+    {{-- Aspiration CTA --}}
+    <section class="px-20 pb-10 shadow-lg select-none overflow-visible">
+        <div class="relative mx-auto bg-primary-600 rounded-3xl min-h-[280px] flex items-center">
 
-                                <div  cla   ss="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('img/aspiration.png');">
-                                </di  v>
+            {{-- Image : Char --}}
+            <div class="hidden md:flex absolute right-8 -top-12 bottom-0 w-[45%] items-end">
+                <img src="{{ asset('img/aspirasi.png') }}" alt="Ruang Aspirasi" class="w-full drop-shadow-2xl"
+                    draggable="false">
+            </div>
 
-                                <div    cla ss="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('img/aspiration.png');">
-                                    </div>
+            {{-- Text Content --}}
+            <div class="relative z-10 md:w-1/2 p-8 md:p-12">
+                <h3 class="text-2xl md:text-3xl font-poppins font-bold text-white leading-tight">
+                    Ada yang Ingin <br> Kamu Sampaikan?
+                </h3>
+                <p class="text-white font-poppins mt-3 text-sm md:text-base max-w-md leading-relaxed">
+                    Sampaikan ide, saran, atau kritik yang membangun. Kami membuka ruang untuk setiap kritik, saran, dan
+                    harapan demi himpunan yang lebih baik.
+                </p>
+                <div class="mt-6">
+                    <a href="/aspirasi"
+                        class="inline-flex items-center gap-2 bg-primary-200 opacity-90 hover:opacity-100 text-primary-300 font-poppins font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+                        Sampaikan Aspirasi
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
-                            <div     cla    ss="relative max-w-5xl mx-auto bg-white p-10 rounded-xl shadow-lg">
-
-                                    <div   cla  ss="flex flex-col md:flex-row gap-8 mt-6">
-                                           <div cla ss="md:w-1/2">
-                                            <p c    lass="text-primary-300 font-poppins text-lg leading-relaxed">
-                                              HIMA  SI s    ebagai wadah aspirasi Mahasiswa Program Studi Sistem Informasi.
-                                               Berb  agai    keluhan, ide, masukan, dan kritik terkait dengan akademik yang membangun terhadap
-                                                kema   juan  Program Studi Sistem Informasi akan disalurkan ke Ketua Program Studi Sistem
-                                                   Info rmasi yang
-                                              tent  u sa    ja kami senantiasa menjaga privasi dan kredibilitas aspirator.
-                                          </p>
-                                         </di v>
-
-                                           <div  class="md:w-1/2 bg-gray-50 p-6 rounded-xl shadow-md relative border border-gray-300">
-                                          <for  m me    thod="POST" action="{{ route('aspiration.store') }}" id="aspiration-form"
-                                                 enctype=   "multipart/form-data">
-                                              @csr    f
-                                                 <lab  el f or="email_student" class="block text-primary-300 font-poppins font-semibold mb-1">
-                                                      Email <s  pan class="text-red-500">*</span>
-                                             </la    bel>
-                                                 <inp ut t  ype="email" name="email_student" id="email_student"
-                                                     clas  s="w -full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                                     plac   eholder="example@students.amikom.ac.id" pattern=".*@students\.amikom\.ac\.id$" required>
-                                               <lab el f    or="class" class="block text-primary-300 font-poppins font-semibold mb-1">
-                                                    Kela  s <s  pan class="text-red-500">*</span>
-                                                </la   bel>
-                                                    <input type="text" name="class" id="class"
-                                                clas    s="w    -full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                                   plac  ehol   der="Masukkan Kelas" required>
-
-                                                   <label f or="aspiration" class="block text-primary-300 font-poppins font-semibold mb-1">
-                                                    Aspi    rasimu <span class="text-red-500">*</span>
-                                              </la  bel>
-                                               <tex  tare   a name="aspiration" id="aspiration" rows="4"
-                                                   clas   s="w  -full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                                                       plac eholder="Sampaikan Aspirasimu!" required></textarea>
-
-                                              <but  ton     type="submit"
-                                                  clas   s="b   g-primary-600 hover:bg-primary-700 cursor-pointer text-white font-poppins font-semibold px-6 py-2 rounded-lg shadow-md w-28 mx-auto block">
-                                                     Kiri m
-                                                  </bu tton >
-                                            </fo  rm>
-                                         </div>
-                                  </di    v>
-                                 </di  v>
-                                </section> -->
-    {{-- End Aspiration --}}
+            {{-- Mobile image --}}
+            <div class="md:hidden w-full">
+                <img src="{{ asset('img/aspirasi.png') }}" alt="Ruang Aspirasi" class="w-full h-48 object-cover"
+                    draggable="false">
+            </div>
+        </div>
+    </section>
+    {{-- End Aspiration CTA --}}
 
     {{-- Berita Acara --}}
-    <section class="bg-white p-6 md:p-20 select-none">
+    <section class="bg-white px-20 pb-10 select-none">
         <div class="flex items-center justify-between pb-8">
             <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Berita Acara</h2>
             <!-- Navigation Arrows -->
@@ -406,3 +386,4 @@
         counters.forEach(c => observer.observe(c));
     </script>
 @endpush
+

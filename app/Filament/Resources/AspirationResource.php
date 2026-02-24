@@ -55,6 +55,11 @@ class AspirationResource extends Resource
                     ->label('Tanggal')
                     ->date('d M Y')
                     ->sortable(),
+
+                Tables\Columns\IconColumn::make('is_anonymous')
+                    ->label('Anonim')
+                    ->boolean()
+                    ->sortable(),
             ])
             ->filters([
                 //

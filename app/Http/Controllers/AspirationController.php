@@ -8,12 +8,19 @@ use Exception;
 
 class AspirationController extends Controller
 {
+    public function index()
+    {
+        return view('pages.aspirasi');
+    }
+
     public function store(Request $request)
     {
         try {
+            $isAnonymous = $request->boolean('is_anonymous');
+
             $request->validate([
-                'email_student' => ['required', 'email', 'regex:/^.+@students\.amikom\.ac\.id$/'],
-                'class' => 'required|string|max:255',
+                'email_student' => $isAnonymous ? 'nullable|email' : ['required', 'email', 'regex:/^.+@students\.amikom\.ac\.id$/'],
+                'class' => $isAnonymous ? 'nullable|string|max:255' : 'required|string|max:255',
                 'aspiration' => 'required',
             ], [
                 'email_student.required' => 'Email mahasiswa wajib diisi.',
@@ -25,6 +32,7 @@ class AspirationController extends Controller
                 'email_student' => $request->email_student,
                 'class' => $request->class,
                 'aspiration' => $request->aspiration,
+                'is_anonymous' => $request->boolean('is_anonymous'),
                 'date' => now(),
             ]);
 

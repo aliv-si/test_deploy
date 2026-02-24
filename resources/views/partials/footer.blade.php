@@ -8,7 +8,7 @@
                 <!-- Header Footer: Logo -->
                 <div class="flex items-center gap-x-4 pb-6">
                     <img src="{{ asset('img/logo-himasi.png') }}" alt="Logo Himasi" class="h-11">
-                    <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-10">
+                    <img src="{{ asset('img/logo-si.png') }}" alt="Logo Sistem Informasi" class="h-9.5">
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Kolom 1: Informasi Universitas -->
