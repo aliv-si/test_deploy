@@ -11,10 +11,8 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id('id_department');
             $table->string('name_department');
+            $table->string('full_name')->nullable();
             $table->text('profil');
-            $table->text('image_struktur');
-            $table->string('work_program')->nullable();
-            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

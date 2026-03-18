@@ -2,6 +2,111 @@ import './bootstrap';
 import Swal from 'sweetalert2'
 window.Swal = Swal
 
+// ── Preloader & Page Transitions ──
+;(function () {
+    const preloader = document.getElementById('preloader');
+    const pageTransition = document.getElementById('page-transition');
+
+    // --- Preloader: only on first visit per session ---
+    if (preloader) {
+        const hasVisited = sessionStorage.getItem('preloaderShown');
+
+        if (hasVisited) {
+            // Already seen preloader this session — remove immediately
+            preloader.remove();
+        } else {
+            // First visit — play Apple-style text reveal
+            sessionStorage.setItem('preloaderShown', '1');
+            const words = preloader.querySelectorAll('.preloader-word');
+            const staggerDelay = 200;
+            const holdTime = 600;
+
+            window.addEventListener('load', () => {
+                words.forEach((word, i) => {
+                    setTimeout(() => {
+                        word.classList.add('visible');
+                    }, 300 + (i * staggerDelay));
+                });
+
+                const totalWait = 300 + (words.length * staggerDelay) + holdTime;
+                setTimeout(() => {
+                    preloader.classList.add('reveal');
+                    // Remove after both sheets have slid up (yellow finishes at 0.25s delay + 0.5s duration)
+                    setTimeout(() => {
+                        preloader.remove();
+                    }, 800);
+                }, totalWait);
+            });
+        }
+    }
+
+    // --- Page Transition: racing sheets on internal navigation ---
+    if (pageTransition) {
+        // Check if we arrived from a page transition — play reveal
+        const isNavigating = sessionStorage.getItem('pageTransition');
+        if (isNavigating) {
+            sessionStorage.removeItem('pageTransition');
+            pageTransition.classList.add('revealing');
+
+            // Clean up after reveal animation finishes
+            setTimeout(() => {
+                pageTransition.classList.remove('revealing');
+                const sheets = pageTransition.querySelectorAll('.transition-sheet');
+                sheets.forEach(s => {
+                    s.style.animation = 'none';
+                    s.offsetHeight; // force reflow
+                    s.style.animation = '';
+                });
+            }, 800);
+        }
+
+        // Intercept link clicks to play exit transition
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (!link) return;
+
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Skip: external links, anchors, javascript:, new tabs, downloads
+            if (
+                link.target === '_blank' ||
+                link.hasAttribute('download') ||
+                href.startsWith('#') ||
+                href.startsWith('javascript:') ||
+                href.startsWith('mailto:') ||
+                href.startsWith('tel:') ||
+                (href.startsWith('http') && !href.startsWith(window.location.origin))
+            ) return;
+
+            e.preventDefault();
+
+            // Set flag so the next page knows to play the reveal
+            sessionStorage.setItem('pageTransition', '1');
+            pageTransition.classList.add('active');
+
+            // Navigate after the sheets finish covering the screen
+            setTimeout(() => {
+                window.location.href = href;
+            }, 600);
+        });
+    }
+
+    // On back/forward navigation (bfcache), reset transition state
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted && pageTransition) {
+            sessionStorage.removeItem('pageTransition');
+            pageTransition.classList.remove('active', 'revealing');
+            const sheets = pageTransition.querySelectorAll('.transition-sheet');
+            sheets.forEach(s => {
+                s.style.animation = 'none';
+                s.offsetHeight; // force reflow
+                s.style.animation = '';
+            });
+        }
+    });
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript Loaded!");
 

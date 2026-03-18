@@ -7,10 +7,12 @@
     <title>@yield('title')</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <link rel="icon" type="image/png" href="img/favicon.ico">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="antialiased">
+    @include('partials.preloader')
     <!-- Navbar -->
     @include('partials.navbar')
 
@@ -26,3 +28,4 @@
 </body>
 
 </html>
+

@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\News;
 use App\Models\Member;
+use App\Models\News;
+use App\Models\Department;
+use App\Models\Position;
+use App\Models\WorkProgram;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,17 +18,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
 
-        // Dummy News Data
-        News::factory(12)->create();
+        // Data Dummy (dari NewsSeeder)
+        $this->call(NewsSeeder::class);
 
-        // Dummy Member Data
-        Member::factory(6)->create();
+        // Department, Position, Member & WorkProgram
+        $this->call(DepartmentSeeder::class);
+
+        // Data Dummy (dari QuestionBankSeeder)
+        $this->call(QuestionBankSeeder::class);
     }
 }

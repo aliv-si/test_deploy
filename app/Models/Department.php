@@ -14,13 +14,18 @@ class Department extends Model
 
     protected $fillable = [
         'name_department',
+        'full_name',
         'profil',
-        'image_struktur',
-        'work_program',
-        'icon'
     ];
 
-    protected $casts = [
-        'work_program' => 'array',
-    ];
+
+    public function members()
+    {
+        return $this->hasMany(Member::class, 'department_id', 'id_department');
+    }
+
+    public function workPrograms()
+    {
+        return $this->hasMany(WorkProgram::class, 'department_id', 'id_department')->orderBy('order');
+    }
 }

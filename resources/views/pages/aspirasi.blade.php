@@ -11,7 +11,8 @@
 </head>
 
 <body class="antialiased min-h-screen flex items-center justify-center bg-gray-100 p-4">
-    <main class="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl flex flex-col lg:flex-row min-h-[550px]">
+    @include('partials.preloader')
+    <main class="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row min-h-[550px]">
 
         {{-- Character decorations --}}
         <img src="{{ asset('img/char_male.png') }}" alt=""
@@ -42,8 +43,7 @@
                     <span class="text-white/90">Aspirasi</span>
                 </h1>
                 <p class="text-white/70 font-poppins max-w-md text-lg leading-relaxed mt-4">
-                    Ide dan saranmu sangat berarti bagi kemajuan program studi kita. Mari bangun lingkungan akademik
-                    yang lebih baik bersama-sama.
+                    Gunakan ruang aspirasi ini untuk menyampaikan ide, saran, atau keluhanmu. Kami siap mendengarkan.
                 </p>
             </div>
         </section>
@@ -81,11 +81,11 @@
                             Pesan Aspirasi <span class="text-red-500">*</span>
                         </label>
                         <textarea id="aspiration" name="aspiration" rows="4"
-                            class="w-full rounded-xl border border-gray-300 bg-white font-poppins text-sm py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition resize-none"
+                            class="w-full rounded-xl border border-gray-300 bg-white font-poppins text-sm py-5 px-4 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition resize-none"
                             spellcheck="false" placeholder="Tuliskan aspirasi, kritik, atau saran kamu..." required></textarea>
                     </div>
 
-                    <div
+                    <!-- <div
                         class="flex items-center justify-between p-3 bg-primary-600/5 rounded-xl border border-primary-600/10">
                         <div class="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -103,7 +103,7 @@
                                 class="w-9 h-5 bg-gray-200 rounded-full peer peer-checked:bg-primary-600 peer-focus:ring-2 peer-focus:ring-primary-600/20 transition-colors after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full">
                             </div>
                         </label>
-                    </div>
+                    </div> -->
 
                     <div class="flex items-center">
                         <input type="checkbox" id="privacy" name="privacy"
@@ -120,16 +120,16 @@
                         Kirim
                     </button>
 
-                    <div class="relative">
+                    <!-- <div class="relative">
                         <div class="absolute inset-0 flex items-center">
                             <div class="w-full border-t border-gray-200"></div>
                         </div>
                         <div class="relative flex justify-center text-sm">
                             <span class="px-2 bg-white text-gray-400 font-poppins">Atau hubungi kami via</span>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="grid grid-cols-2 gap-3">
+                    <!-- <div class="grid grid-cols-2 gap-3">
                         <button type="button"
                             class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-200 rounded-xl bg-white text-sm font-poppins font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-colors">
                             <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -147,7 +147,7 @@
                             </svg>
                             Email
                         </button>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </section>
@@ -224,3 +224,4 @@
 </body>
 
 </html>
+

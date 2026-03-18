@@ -36,6 +36,11 @@ class QuestionBankResource extends Resource
                 TextInput::make('subject')
                     ->label('Mata Kuliah')
                     ->required(),
+                TextInput::make('subject_code')
+                    ->label('Kode Mata Kuliah')
+                    ->maxLength(20)
+                    ->placeholder('Contoh: SI101')
+                    ->required(),
                 Select::make('semester')
                     ->label('Semester')
                     ->options([
@@ -45,6 +50,8 @@ class QuestionBankResource extends Resource
                         '4' => 'Semester 4',
                         '5' => 'Semester 5',
                         '6' => 'Semester 6',
+                        '7' => 'Semester 7',
+                        '8' => 'Semester 8',
                     ])
                     ->native(false)
                     ->required(),
@@ -78,7 +85,9 @@ class QuestionBankResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('subject')
-                    ->label('Mata Kuliah'),
+                    ->label('Mata Kuliah')
+                    ->description(fn($record) => $record->subject_code)
+                    ->searchable(),
                 TextColumn::make('semester')
                     ->label('Semester')
                     ->formatStateUsing(fn($state) => "Semester $state"),

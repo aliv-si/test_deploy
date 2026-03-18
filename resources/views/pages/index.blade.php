@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'HIMASI')
+@section('title', 'Himpunan Mahasiswa Sistem Informasi (HIMASI) Amikom Yogyakarta')
 
 @section('content')
     {{-- Header --}}
-    <header class="relative min-h-screen flex items-center -mt-16 pt-16">
+    <header class="relative min-h-screen flex items-center -mt-16 pt-16 select-none">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
             <img src="img/background.png" alt="Background" class="w-full h-full object-cover opacity-25" draggable="false">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="relative md:w-1/2 flex justify-center mb-8 md:mb-0">
-                    <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-64 md:w-96" draggable="false">
+                    <img src="img/logo-himasi.png" alt="HIMASI Logo" class="w-68 md:w-96" draggable="false">
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     inovatif.
                 </p>
                 <a href="https://si.amikom.ac.id/sambutan-kaprodi/" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 mt-6 bg-primary-600 hover:bg-primary-700 text-white font-poppins font-semibold px-6 py-3 rounded-lg shadow-md transition-colors">
+                    class="inline-flex items-center gap-2 mt-6 bg-primary-600 hover:bg-primary-700 text-white font-poppins font-semibold px-6 py-3 rounded-lg shadow-md transition-colors duration-300">
                     Kunjungi Website Prodi
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="size-4">
@@ -78,7 +78,7 @@
     {{-- Organisasi Kami --}}
     <section class="px-6 md:px-20 pt-20 select-none">
         <!-- Header: Title left, Description right -->
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-10">
+        <div class="flex flex-col-2 md:flex-row md:items-end md:justify-between gap-4 pb-10">
             <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Kenali Tim <br> HIMASI Kami</h2>
             <p class="text-gray-500 text-sm font-poppins max-w-sm">
                 Pengurus HIMASI yang berkomitmen untuk mewadahi, menyalurkan aspirasi, dan mengembangkan potensi mahasiswa
@@ -87,10 +87,10 @@
         </div>
 
         <!-- Team Slider -->
-        <div id="team-slider" class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
-            @foreach ($members->take(4) as $member)
+        <div id="team-slider" class="flex gap-5">
+            @foreach ($members->take(3) as $member)
                 <div
-                    class="group relative bg-gray-200 rounded-2xl overflow-hidden aspect-[3/4] flex-shrink-0 w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] snap-start">
+                    class="group relative bg-gray-200 rounded-2xl overflow-hidden aspect-[3/4] flex-shrink-0 w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] snap-start hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <!-- Photo -->
                     @if ($member->photo)
                         <img src="{{ asset('storage/' . $member->photo) }}" alt="{{ $member->name }}"
@@ -110,7 +110,7 @@
                         class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 flex items-center justify-between">
                         <div>
                             <h3 class="text-sm font-semibold font-poppins text-primary-300">{{ $member->name }}</h3>
-                            <p class="text-xs text-gray-500 font-poppins">{{ $member->position }}</p>
+                            <p class="text-xs text-gray-500 font-poppins">{{ $member->positionRole->name ?? '-' }}</p>
                         </div>
                         @if ($member->instagram)
                             <a href="https://instagram.com/{{ ltrim($member->instagram, '@') }}" target="_blank"
@@ -130,12 +130,13 @@
             @endforeach
 
             <!-- CTA Card: Lihat Semua Anggota (hidden, revealed on scroll) -->
-            <a href="/profil"
+            <a href="/department"
                 class="rounded-2xl border-2 border-dashed border-gray-300 aspect-[3/4] flex-shrink-0 w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] snap-start flex flex-col items-center justify-center gap-3 hover:border-primary-600 hover:bg-primary-600/5 transition-all duration-300 group">
                 <div
                     class="w-14 h-14 rounded-full bg-gray-100 group-hover:bg-primary-600/10 flex items-center justify-center transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-7 text-gray-400 group-hover:text-primary-600 transition-colors">
+                        stroke="currentColor"
+                        class="size-7 text-gray-400 group-hover:text-primary-600 transition-all duration-500 group-hover:rotate-[360deg]">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
                 </div>
@@ -182,7 +183,7 @@
                 </p>
                 <div class="mt-6">
                     <a href="/aspirasi"
-                        class="inline-flex items-center gap-2 bg-primary-200 opacity-90 hover:opacity-100 text-primary-300 font-poppins font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+                        class="inline-flex items-center gap-2 bg-primary-200 opacity-90 hover:opacity-100 text-primary-300 font-poppins font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
                         Sampaikan Aspirasi
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" class="w-4 h-4">
@@ -204,52 +205,70 @@
 
     {{-- Berita Acara --}}
     <section class="bg-white px-20 pb-10 select-none">
-        <div class="flex items-center justify-between pb-8">
-            <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Berita Acara</h2>
+        <div class="flex justify-between pb-6">
+            <h2 class="text-3xl font-poppins text-primary-300 font-semibold">Kabar Terkini</h2>
             <!-- Navigation Arrows -->
-            <div class="flex gap-2">
-                <button id="news-prev"
-                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                    </svg>
-                </button>
-                <button id="news-next"
-                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
+            <div class="flex items-end gap-2">
+                <a href="/berita"
+                    class="inline-flex items-center gap-1 text-gray-400 font-poppins mx-2 hover:text-primary-600 hover:-translate-y-0.5 transition-all duration-300">Lihat
+                    Semua
+                </a>
+                <!-- <button id="news-prev"
+                                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default"
+                                    {{ $newsList->count() == 0 ? 'disabled' : '' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" class="size-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                                    </svg>
+                                </button>
+                                <button id="news-next"
+                                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default"
+                                    {{ $newsList->count() == 0 ? 'disabled' : '' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" class="size-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </button> -->
             </div>
         </div>
 
-        <div id="news-slider"
-            class="flex gap-4 pb-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory scrollbar-hide">
-            @foreach ($newsList as $news)
-                <a href="{{ route('news.show', ['slug' => $news->slug]) }}"
-                    class="group block flex-shrink-0 w-[calc(100%-16px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-12px)] snap-start">
-                    <!-- Thumbnail -->
-                    <div class="w-full aspect-video overflow-hidden rounded-xl">
-                        <img src="{{ asset('storage/' . $news->image_news) }}" alt="{{ $news->news_headline }}"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            draggable="false">
-                    </div>
-                    <!-- Info -->
-                    <h3
-                        class="text-sm font-semibold font-poppins text-primary-300 line-clamp-2 mt-3 group-hover:text-primary-600 transition-colors">
-                        {{ $news->news_headline }}
-                    </h3>
-                    <p class="text-xs text-gray-500 font-poppins mt-1 line-clamp-2">
-                        {{ Str::limit($news->news_content, 80) }}
-                    </p>
-                    <p class="text-xs text-gray-400 font-poppins mt-1">
-                        {{ $news->date->format('d M Y') }}
-                    </p>
-                </a>
-            @endforeach
-        </div>
+        @if ($newsList->count() > 0)
+            <div id="news-slider"
+                class="flex gap-4 pb-3 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory scrollbar-hide">
+                @foreach ($newsList as $news)
+                    <a href="{{ route('news.show', ['slug' => $news->slug]) }}"
+                        class="group block flex-shrink-0 w-[calc(100%-16px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-12px)] snap-start">
+                        <!-- Thumbnail -->
+                        <div class="w-full aspect-video overflow-hidden rounded-xl">
+                            <img src="{{ asset('storage/' . $news->image_news) }}" alt="{{ $news->news_headline }}"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                draggable="false">
+                        </div>
+                        <!-- Info -->
+                        <h3
+                            class="text-sm font-semibold font-poppins text-primary-300 line-clamp-2 mt-3 group-hover:text-primary-600 transition-colors">
+                            {{ $news->news_headline }}
+                        </h3>
+                        <p class="text-xs text-gray-500 font-poppins mt-1 line-clamp-2">
+                            {{ Str::limit($news->news_content, 80) }}
+                        </p>
+                        <p class="text-xs text-gray-300 font-poppins mt-1">
+                            {{ $news->date->format('d M Y') }}
+                        </p>
+                    </a>
+                @endforeach
+            </div>
+        @else
+            <div class="border border-gray-200 rounded-3xl flex flex-col items-center justify-center py-12 text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                    stroke="currentColor" class="w-16 h-16 mb-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                </svg>
+                <p class="text-gray-300 text-medium font-poppins font-medium">Belum ada berita</p>
+            </div>
+        @endif
+
     </section>
     {{-- End Berita Acara --}}
 
@@ -285,18 +304,39 @@
                 nextBtn.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1;
             }
 
+            function smoothScroll(el, distance, duration) {
+                let start = el.scrollLeft;
+                let startTime = null;
+
+                // Disable snap temporarily so animation is smooth
+                el.style.scrollSnapType = 'none';
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    let timeElapsed = currentTime - startTime;
+                    let amount = Math.min(timeElapsed / duration, 1);
+
+                    // Ease In Out Quad
+                    let ease = amount < 0.5 ? 2 * amount * amount : -1 + (4 - 2 * amount) * amount;
+                    el.scrollLeft = start + (distance * ease);
+
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    } else {
+                        // Restore snap after animation
+                        el.style.scrollSnapType = '';
+                        updateButtons();
+                    }
+                }
+                requestAnimationFrame(animation);
+            }
+
             prevBtn.addEventListener('click', () => {
-                slider.scrollBy({
-                    left: -getScrollAmount() * 4,
-                    behavior: 'smooth'
-                });
+                smoothScroll(slider, -getScrollAmount(), 400); // 400ms duration
             });
 
             nextBtn.addEventListener('click', () => {
-                slider.scrollBy({
-                    left: getScrollAmount() * 4,
-                    behavior: 'smooth'
-                });
+                smoothScroll(slider, getScrollAmount(), 400); // 400ms duration
             });
 
             slider.addEventListener('scroll', updateButtons);

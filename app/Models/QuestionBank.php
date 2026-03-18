@@ -19,10 +19,11 @@ class QuestionBank extends Model
     protected $fillable = [
         'user_id',
         'subject',
+        'subject_code',
         'semester',
         'category',
-        'school_year',
-        'file_path_soal',
+        'tahun_ajaran',
+        'nama_file',
         'tanggal_upload'
     ];
 

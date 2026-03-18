@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id('id_soal');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('subject', 255);
+            $table->string('subject_code', 20)->nullable();
             $table->integer('semester');
             $table->enum('category', ['uts', 'uas']);
-            $table->string('file_path_soal', 255);
+            $table->string('tahun_ajaran')->nullable();
+            $table->string('nama_file', 255)->nullable();
             $table->timestamp('tanggal_upload')->useCurrent();
             $table->timestamps();
         });

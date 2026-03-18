@@ -10,13 +10,7 @@ class DepartmentController extends Controller
 
     public function index()
     {
-        $departments = Department::all();
+        $departments = Department::with(['members.positionRole', 'workPrograms'])->get();
         return view('pages.department', compact('departments')); // Sesuaikan path view
-    }
-
-    public function show($id_department)
-    {
-        $department = Department::findOrFail($id_department);
-        return view('pages.detail-department', compact('department'));
     }
 }

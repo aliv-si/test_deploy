@@ -11,9 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $newsList = News::orderBy('created_at', 'desc')->take(8)->get(); 
-        $departments = Department::all();
-        $members = Member::orderBy('order')->take(4)->get();
+        $newsList = News::orderBy('created_at', 'desc')->take(4)->get(); 
+        $departments = Department::take(3)->get();
+        $members = Member::with('positionRole')->orderBy('position_id')->take(3)->get();
         $totalMembers = Member::count();
         return view('pages.index', compact('newsList', 'departments', 'members', 'totalMembers')); 
     }

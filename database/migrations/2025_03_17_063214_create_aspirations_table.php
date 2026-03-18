@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('email_student');
             $table->string('class', 10);
             $table->text('aspiration');
+            $table->boolean('is_anonymous')->default(false);
             $table->dateTime('date');
             $table->timestamps();
         });

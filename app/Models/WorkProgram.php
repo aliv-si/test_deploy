@@ -5,26 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class WorkProgram extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'photo',
-        'photo_hover',
-        'instagram',
+        'description',
         'department_id',
-        'position_id',
+        'order',
     ];
 
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id', 'id_department');
-    }
-
-    public function positionRole()
-    {
-        return $this->belongsTo(Position::class, 'position_id');
     }
 }

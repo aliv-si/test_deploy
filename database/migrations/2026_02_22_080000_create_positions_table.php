@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('aspirations', function (Blueprint $table) {
-            $table->boolean('is_anonymous')->default(false)->after('aspiration');
+        Schema::create('positions', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::table('aspirations', function (Blueprint $table) {
-            $table->dropColumn('is_anonymous');
-        });
+        Schema::dropIfExists('positions');
     }
 };

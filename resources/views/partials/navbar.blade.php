@@ -1,39 +1,42 @@
 <header
-    class="sticky top-0 z-1 w-full border-[#f1f2f4] dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md select-none">
+    class="sticky top-0 z-50 w-full shadow-xs bg-white dark:bg-background-dark md:bg-white/80 md:dark:bg-background-dark/80 md:backdrop-blur-md select-none border-b border-transparent md:border-none dark:md:border-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <img src="img/logo-himasi.png" alt="HIMASI Logo" class="h-8 w-8">
+            <div class="flex flex-1 items-center space-x-3">
+                <img src="{{ asset('img/logo-himasi.png') }}" alt="HIMASI Logo" class="h-7 w-7">
                 <span class="text-xl font-poppins font-medium text-primary-300">HIMASI</span>
             </div>
             <!-- Navigation Links (Desktop) -->
-            <ul class="hidden md:flex space-x-6 text-primary-300">
-                <li><a href="/" class="relative hover:text-primary-600 font-poppins font-medium group">Home
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="/"
+                        class="relative font-poppins font-medium group hover:text-primary-600 {{ Request::is('/') ? 'text-primary-300' : 'text-gray-400' }}">Home
                         <span
-                            class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                            class="absolute left-0 bottom-0 h-0.5 bg-primary-200 w-0 group-hover:w-full transition-all"></span></a>
                 </li>
-                <li><a href="/profil" class="relative hover:text-primary-600 font-poppins font-medium group">Profil
+                <li><a href="/profil"
+                        class="relative font-poppins font-medium group hover:text-primary-600 {{ Request::is('profil') ? 'text-primary-300' : 'text-gray-400' }}">Profil
                         <span
-                            class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                            class="absolute left-0 bottom-0 h-0.5 bg-primary-200 w-0 group-hover:w-full transition-all"></span></a>
                 </li>
                 <li><a href="/department"
-                        class="relative hover:text-primary-600 font-poppins font-medium group">Departemen
+                        class="relative font-poppins font-medium group hover:text-primary-600 {{ Request::is('department') ? 'text-primary-300' : 'text-gray-400' }}">Departemen
                         <span
-                            class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                            class="absolute left-0 bottom-0 h-0.5 bg-primary-200 w-0 group-hover:w-full transition-all"></span></a>
                 </li>
-                <li><a href="/berita" class="relative hover:text-primary-600 font-poppins font-medium group">Berita
+                <li><a href="/berita"
+                        class="relative font-poppins font-medium group hover:text-primary-600 {{ Request::is('berita*') ? 'text-primary-300' : 'text-gray-400' }}">Berita
                         <span
-                            class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
+                            class="absolute left-0 bottom-0 h-0.5 bg-primary-200 w-0 group-hover:w-full transition-all"></span></a>
                 </li>
-                <!-- <li><a href="/banksoal" class="relative hover:text-primary-600 font-poppins font-medium group">Bank
-                        Soal
+                <!-- <li><a href="/banksoal"
+                        class="relative font-poppins font-medium group hover:text-primary-600 {{ Request::is('banksoal*') ? 'text-primary-300' : 'text-gray-400' }}">Bank Soal
                         <span
                             class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary-200 transition-all group-hover:w-full"></span></a>
                 </li> -->
             </ul>
             <!-- CTA -->
-            <div class="flex items-center gap-4">
+            <div class="flex flex-1 items-center justify-end gap-4">
                 <a href="{{ route('aspirasi') }}"
                     class="group relative hidden md:flex h-10 w-10 items-center justify-center rounded-lg bg-primary-200 text-primary-300 shadow-sm hover:bg-primary-600 hover:text-white transition-all duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -58,18 +61,22 @@
             </div>
         </div>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="absolute top-full left-0 w-full bg-white/90 backdrop-blur-md shadow-lg hidden md:hidden z-50 transition-all ease-in-out duration-300">
-        <div class="max-w-7xl mx-auto px-6 md:px-10">
-            <ul class="flex flex-col space-y-3 py-4 text-primary-300">
-                <li><a href="/" class="block font-poppins font-medium pb-2">Home</a></li>
-                <li><a href="/profil" class="block font-poppins font-medium pb-2">Profil</a></li>
-                <li><a href="/department" class="block font-poppins font-medium pb-2">Departemen</a></li>
-                <li><a href="/berita" class="block font-poppins font-medium pb-2">Berita</a></li>
-                <li><a href="/banksoal" class="block font-poppins font-medium pb-2">Bank Soal</a></li>
-            </ul>
-        </div>
-    </div>
 </header>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed top-16 left-0 w-full bg-white shadow-xl hidden md:hidden z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <ul class="flex flex-col space-y-3 py-4 text-primary-300">
+            <li class="mb-6"><a href="/" class="font-poppins font-medium">Home</a>
+            </li>
+            <li class="mb-6"><a href="/profil" class="font-poppins font-medium">Profil</a>
+            </li>
+            <li class="mb-6"><a href="/department" class="font-poppins font-medium">Departemen</a>
+            </li>
+            <li class="mb-6"><a href="/berita" class="font-poppins font-medium">Berita</a>
+            </li>
+            <li class="mb-6"><a href="/banksoal" class="font-poppins font-medium">Bank
+                    Soal</a></li>
+        </ul>
+    </div>
+</div>
 
