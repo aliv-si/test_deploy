@@ -1,4 +1,8 @@
 #!/bin/sh
-echo "Running migrations..."
+echo "Running startup tasks..."
+php /var/www/html/artisan storage:link --force 2>/dev/null || true
 php /var/www/html/artisan migrate --force
-echo "Migrations complete."
+php /var/www/html/artisan config:cache
+php /var/www/html/artisan route:cache
+php /var/www/html/artisan view:cache
+echo "Startup tasks complete."
