@@ -1,31 +1,27 @@
-FROM php:8.3-cli
+FROM serversideup/php:8.3-fpm-nginx AS base
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git curl zip unzip libpng-dev libjpeg-dev libfreetype6-dev \
-    libonig-dev libxml2-dev libzip-dev libicu-dev nodejs npm \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo_mysql mbstring xml bcmath ctype \
-       fileinfo tokenizer gd zip intl \
+# Switch to root for installing Node
+USER root
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-WORKDIR /app
+WORKDIR /var/www/html
 COPY . .
 
 # Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Install Node dependencies & build
+# Install Node dependencies & build frontend
 RUN npm install && npm run build
 
-# Cache Laravel config
-RUN php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
+# Fix permissions
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Switch back to www-data
+USER www-data
 
 EXPOSE 8080
-
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
