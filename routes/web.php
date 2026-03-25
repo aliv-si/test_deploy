@@ -7,6 +7,23 @@ use App\Http\Controllers\AspirationController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\QuestionBankController;
 
+Route::get('/debug', function () {
+    try {
+        $db = \DB::connection()->getPdo() ? 'OK' : 'FAIL';
+    } catch (\Exception $e) {
+        $db = 'ERROR: ' . $e->getMessage();
+    }
+    return response(
+        "APP_ENV: " . config('app.env') . "\n" .
+        "APP_DEBUG: " . config('app.debug') . "\n" .
+        "APP_KEY set: " . (config('app.key') ? 'YES' : 'NO') . "\n" .
+        "DB: " . $db . "\n" .
+        "Vite manifest: " . (file_exists(public_path('build/manifest.json')) ? 'EXISTS' : 'MISSING') . "\n" .
+        "Storage link: " . (is_link(public_path('storage')) ? 'YES' : 'NO') . "\n" .
+        "Log: " . (is_writable(storage_path('logs')) ? 'WRITABLE' : 'NOT WRITABLE') . "\n"
+    , 200, ['Content-Type' => 'text/plain']);
+});
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/profil', function () {
