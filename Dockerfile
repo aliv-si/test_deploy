@@ -21,6 +21,10 @@ RUN npm install && npm run build
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Auto-run migrations on startup
+COPY docker/startup.sh /etc/entrypoint.d/99-migrations.sh
+RUN chmod +x /etc/entrypoint.d/99-migrations.sh
+
 # Switch back to www-data
 USER www-data
 
