@@ -11,6 +11,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 WORKDIR /var/www/html
 COPY . .
 
+# Use production env (Railway env vars will override)
+COPY .env.production .env
+
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
 
