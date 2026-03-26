@@ -24,6 +24,9 @@ RUN npm install && npm run build
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Create storage symlink at build time (runtime symlink fails with permission denied)
+RUN ln -sf /var/www/html/storage/app/public /var/www/html/public/storage
+
 # Auto-run migrations on startup
 COPY docker/startup.sh /etc/entrypoint.d/99-migrations.sh
 RUN chmod +x /etc/entrypoint.d/99-migrations.sh
