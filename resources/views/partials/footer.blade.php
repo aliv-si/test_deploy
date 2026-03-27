@@ -49,7 +49,8 @@
                                     </svg>
                                 </a>
                                 <a href="https://www.tiktok.com/@himasiamikom" target="_blank"
-                                    class="text-gray-400 hover:text-primary-600 transition-colors duration-300" aria-label="TikTok">
+                                    class="text-gray-400 hover:text-primary-600 transition-colors duration-300"
+                                    aria-label="TikTok">
                                     <span class="sr-only">TikTok</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"
                                         fill="currentColor">
@@ -58,8 +59,9 @@
                                         </path>
                                     </svg>
                                 </a>
-                                <a href="mailto:himasiamikom@amikom.ac.id" target="_blank"
-                                    class="text-gray-400 hover:text-primary-600 transition-colors duration-300" aria-label="Email">
+                                <a href="mailto:himasi@amikom.ac.id" target="_blank"
+                                    class="text-gray-400 hover:text-primary-600 transition-colors duration-300"
+                                    aria-label="Email">
                                     <span class="sr-only">Email</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"
                                         fill="currentColor">
